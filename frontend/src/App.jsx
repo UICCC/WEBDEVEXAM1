@@ -3,12 +3,16 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import React from 'react'; 
 import './App.css'
+import './button.css'
 import { Menubar } from 'primereact/menubar';
 import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import { Card } from 'primereact/card';
 import { InputText } from "primereact/inputtext";
+import { Password } from 'primereact/password';
+import { Button } from 'primereact/button';
+        
         
         
 function App() {
@@ -40,6 +44,8 @@ function App() {
 
 const [value, setValue] = useState('');
 const [valueName, setName] = useState('');
+const [valuePass, setPass] = useState('');
+
 
 
   
@@ -58,15 +64,33 @@ const [valueName, setName] = useState('');
         <div className="Id-box">
             <span className="p-float-label">
                 <InputText className="inside-box" value={value} onChange={(e) => setValue(e.target.value)} />
-                <label htmlFor="username">ID Number</label>
+                <label id ="username">ID Number</label>
             </span>
         </div>
         <div className="name-box">
             <span className="p-float-label">
                 <InputText className="inside-name" value={valueName} onChange={(e) => setName(e.target.value)} />
-                <label htmlFor="username">Student Name</label>
+                <label id="username">Student Name</label>
             </span>
         </div>
+
+        <div className="email-box">
+            <span className="p-float-label">
+                <InputText className="inside-email" value={valueName} onChange={(e) => setName(e.target.value)} />
+                <label id="username">Email Address</label>
+            </span>
+        </div>
+
+        <div className="password-box">
+            <span className="p-float-label">
+                <Password className="inside-password" value={valuePass} onChange={(e) => setPass(e.target.value)} />
+                <label id="password">Password</label>
+            </span>
+        </div>
+        <Button id='login-button' label="Login" severity="help" rounded />
+        <Button id='Signup-button' label="Signup" severity="help" rounded />
+        
+        
 
     </div>
    
