@@ -76,15 +76,53 @@
 .name-box{
   position: absolute; 
   z-index: 1;
-  top: 40%; /* Position it vertically at 50% from the top */
+  top: 51%; /* Position it vertically at 50% from the top */
   left: 55%; /* Position it horizontally at 50% from the left */
   transform: translate(-50%, -50%); /* Center the component both vertically and horizontally */
-  
-  margin-top: 100px;   
+   
 
 }
 .inside-name{
   width: 200%;
   
+}
+
+
+.email-box{
+  position: absolute; 
+  z-index: 1;
+  top: 58%; /* Position it vertically at 50% from the top */
+  left: 55%; /* Position it horizontally at 50% from the left */
+  transform: translate(-50%, -50%); /* Center the component both vertically and horizontally */
+
+}
+
+.inside-email{
+  width: 200%;
+}
+
+.password-box{
+  position: absolute; 
+  z-index: 1;
+  top: 65%; /* Position it vertically at 50% from the top */
+  left: 55%; /* Position it horizontally at 50% from the left */
+  transform: translate(-50%, -50%);
+}
+
+.inside-password{
+  width: 200;
+
+}
+
+
+
+#username{
+
+  margin-top: -8px;
+  color: #e65b7a;
+}
+#password{
+  
+  margin-top: -8px;
 }
 
