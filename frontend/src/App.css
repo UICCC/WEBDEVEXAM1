@@ -13,51 +13,6 @@
 }
 
 
-
-
-.new-component {
-  position: absolute; 
-  z-index: 1;
-  top: 8%; /* Position it vertically at 50% from the top */
-  left: 68%; /* Position it horizontally at 50% from the left */
-  transform: translate(-50%, -50%); /* Center the component both vertically and horizontally */
-  width: 32%;
-  
-  
-}
-.navbar{
-  
-  background-color: ;
-  border: none;
-  
- 
-}
-
-.navbar-text{
-  color: black;
-}
-
-.navbar-text-uic{
-  font-size: 25px;
-  padding-left: 10px;
-  padding-right: 10px;
-  color: #e65b7a;
-}
-
-.main-title{
-
-  position: absolute; 
-  z-index: 1;
-  top: 30%; /* Position it vertically at 50% from the top */
-  left:55%; /* Position it horizontally at 50% from the left */
-  transform: translate(-50%, -50%);
-  width: 200px;
-  font-size: 30px;
-  font-weight: 100;
-
-}
-
-
 .Id-box{
   position: absolute; 
   z-index: 1;
@@ -73,18 +28,16 @@
   
 }
 
-.name-box{
+.password-box1{
   position: absolute; 
   z-index: 1;
-  top: 40%; /* Position it vertically at 50% from the top */
+  top: 50%; /* Position it vertically at 50% from the top */
   left: 55%; /* Position it horizontally at 50% from the left */
-  transform: translate(-50%, -50%); /* Center the component both vertically and horizontally */
-  
-  margin-top: 100px;   
-
+  transform: translate(-50%, -50%);
 }
-.inside-name{
-  width: 200%;
-  
+
+.inside-password{
+  width: 200;
+
 }
 

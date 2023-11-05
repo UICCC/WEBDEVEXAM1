@@ -1,0 +1,37 @@
+#login-button{
+    position: absolute; 
+  z-index: 1;
+  top: 72%; /* Position it vertically at 50% from the top */
+  left: 55%; /* Position it horizontally at 50% from the left */
+  transform: translate(-50%, -50%);
+  width: 200px;
+  background-color: #e65b7a;;
+}
+#Signup-button{
+    position: absolute; 
+    z-index: 1;
+    top: 72%; /* Position it vertically at 50% from the top */
+    left: 66%; /* Position it horizontally at 50% from the left */
+    transform: translate(-50%, -50%);
+    width: 200px;
+    background-color: #e65b7a;;
+
+}
+#login-button1{
+  position: absolute; 
+z-index: 1;
+top: 72%; /* Position it vertically at 50% from the top */
+left: 55%; /* Position it horizontally at 50% from the left */
+transform: translate(-50%, -50%);
+width: 200px;
+background-color: #e65b7a;;
+}
+#Signup-button1{
+  position: absolute; 
+  z-index: 1;
+  top: 72%; /* Position it vertically at 50% from the top */
+  left: 66%; /* Position it horizontally at 50% from the left */
+  transform: translate(-50%, -50%);
+  width: 200px;
+  background-color: #e65b7a;;
+}
