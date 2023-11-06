@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import Login from'./pages/Login/Login.jsx'
 import Request from './pages/Request/Request.tsx';
+import Ticket from'./pages/Request/Ticket/Ticket.tsx';
 
 
 const router = createBrowserRouter([
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: "/Request",
     element: <Request />,
+  },
+  {
+    path: "/Ticket",
+    element: <Ticket />,
   },
 ]);
 

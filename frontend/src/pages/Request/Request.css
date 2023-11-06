@@ -8,6 +8,7 @@
     left: 3%;
     margin-top: 70px;
     position: relative; /* Add this to establish a positioning context */
+    
   }
 
   .uic-full{
@@ -60,6 +61,18 @@
     font-weight: 100;
 
   }
+
+  .newline{
+    position: absolute; 
+    z-index: 1;
+    top: 110%; /* Position it vertically at 50% from the top */
+    left: 51%; /* Position it horizontally at 50% from the left */
+    transform: translate(-50%, -50%);
+    width: 1000px;
+    font-size: 20px;
+    font-weight: 100;
+
+  }
   .dearsir{
     position: absolute; 
     z-index: 1;
@@ -94,7 +107,7 @@
   }
   .navbar2{
     
-    background-color: ;
+    
     border: none;
     
    
@@ -111,6 +124,17 @@
   
  }
 
+ .room-dropdown{
+  position: absolute; 
+    z-index: 1;
+    top: 65%; /* Position it vertically at 50% from the top */
+    left: 40%; /* Position it horizontally at 50% from the left */
+    transform: translate(-50%, -50%); /* Center the component both vertically and horizontally */
+    
+    margin-top: 100px;   
+
+ }
+
  .dropdown-box{
     width: 250px;
  }
@@ -122,8 +146,34 @@
  }
 
 
+.purpose-box{
+  position: absolute; 
+  z-index: 1;
+  top: 81%; /* Position it vertically at 50% from the top */
+  left:60%; /* Position it horizontally at 50% from the left */
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: 100;
+}
+
+.inside-purpose-box{
+  width: 120%;
+}
+.dateandTime{
+  
+  position: absolute; 
+  z-index: 1;
+  top: 76%; /* Position it vertically at 50% from the top */
+  left:76%; /* Position it horizontally at 50% from the left */
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: 100;
+
+}
+
 
  .liable-sentence{
+    
     position: absolute; 
     z-index: 1;
     top: 120%; /* Position it vertically at 50% from the top */
@@ -134,26 +184,36 @@
     font-weight: 100;
  }
 
- .courseandyear{
-    position: absolute; 
-    z-index: 1;
-    top: 125%; /* Position it vertically at 50% from the top */
-    left:19%; /* Position it horizontally at 50% from the left */
-    transform: translate(-50%, -50%);
-    
-    font-size: 20px;
-    font-weight: 100;
+ 
 
- }
- .totalstudent{
-    position: absolute; 
-    z-index: 1;
-    top: 129%; /* Position it vertically at 50% from the top */
-    left:19%; /* Position it horizontally at 50% from the left */
-    transform: translate(-50%, -50%);
-    
-    font-size: 20px;
-    font-weight: 100;
 
- }
+.course-year{
+  position: absolute; 
+  z-index: 1;
+  top: 140%; /* Position it vertically at 50% from the top */
+  left:23%; /* Position it horizontally at 50% from the left */
+  transform: translate(-50%, -50%);
+  height: 30vh;
+  font-size: 20px;
+  font-weight: 100;
+
+}
+
+.submit-button{
+  position: absolute; 
+  z-index: 1;
+  top: 160%; /* Position it vertically at 50% from the top */
+  left:50%; /* Position it horizontally at 50% from the left */
+  transform: translate(-50%, -50%);
+  height: 30vh;
+  font-size: 20px;
+  font-weight: 100;
+
+}
+
+#submitcolor-button{
+  background-color: pink;
+  border: none;
+}
+ 
  

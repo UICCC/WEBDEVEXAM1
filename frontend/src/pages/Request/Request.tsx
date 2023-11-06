@@ -3,6 +3,11 @@ import { Menubar } from 'primereact/menubar';
 import { Dropdown } from 'primereact/dropdown';
 import React, { useState } from "react";
 import { MultiSelect } from 'primereact/multiselect';
+import { InputText } from "primereact/inputtext";
+import { InputTextarea } from "primereact/inputtextarea";
+import { Button } from 'primereact/button';
+import { Calendar } from 'primereact/calendar';
+import {useNavigate} from 'react-router-dom';
 
 interface InputValue {
     name: string;
@@ -53,7 +58,27 @@ function Request() {
         { name: 'LCD', code: 'IN' },
         { name: 'Microphone', code: 'JP' },
         { name: 'Mic. Cord', code: 'ES' },
-        { name: 'Mic. Stand', code: 'US' }
+        { name: 'Mic. Stand', code: 'US' },
+        { name: 'Pc', code: 'ES' },
+        { name: 'Type-C HDMI Connector', code: 'ES' },
+        { name: 'Portable CD/DVD player', code: 'ES' },
+        { name: 'Portable wirless amplifier ', code: 'ES' },
+        { name: 'PPT Presenter', code: 'ES' },
+        { name: 'AD', code: 'ES' },
+        { name: 'CD/ICD', code: 'ES' },
+        { name: 'Bluetooth Speaker', code: 'ES' },
+        { name: 'HC', code: 'ES' },
+        { name: 'KT', code: 'ES' },
+        { name: 'LC', code: 'ES' },
+        { name: 'PI', code: 'ES' },
+        { name: 'QG', code: 'ES' },
+        { name: 'Mac Con', code: 'ES' },
+        { name: 'VD', code: 'ES' },
+        
+        
+
+
+
     ];
     const itemTemplate = (option: InputValue) => {
         return (
@@ -64,6 +89,18 @@ function Request() {
         );
     };
   
+    const [purpose, setPurpose] = useState('');
+    const [datetime12h, setDateTime12h] = useState(null);
+    const [dropdownValue, setDropdownValue] = useState(null);
+
+    const dropdownValues: InputValue[] = [
+        { name: 'Room1', code: 'NY' },
+        { name: 'Room2', code: 'RM' }
+        
+    ];
+
+    const navigate = useNavigate();
+  const handleSubmitClick = () => navigate('/Ticket');
 
 
 
@@ -90,18 +127,6 @@ function Request() {
         <p className='dearsirsentence'> I would like to borrow from your office the ff. Materials and Equipments & Accessories:</p>
        
         
-
-        
-
-
-
-
-        <p className='liable-sentence' > I am liable for any damage of the said A materials and equipment</p>
-        <p className='courseandyear'> Course & Year:</p>
-        <p className='totalstudent'> No. of Students</p>
-
-
-
         <div className='first-dropdown'>
       <h5>Equipments</h5>
                     <MultiSelect 
@@ -117,7 +142,53 @@ function Request() {
                     />
                 </div>
 
-      
+                <div className='room-dropdown'>
+                <h5>Room</h5>
+                    <Dropdown value={dropdownValue} onChange={(e) => setDropdownValue(e.value)} options={dropdownValues} optionLabel="name" placeholder="Select" />
+                    </div>
+
+                <div className="purpose-box">
+                    <label htmlFor="asd"> <h5>Purpose</h5></label>
+            <InputTextarea className='inside-purpose-box' autoResize value={purpose} onChange={(e) => setPurpose(e.target.value)} rows={5} cols={30} />
+            
+        </div>
+        
+        <div className="dateandTime">
+                <label htmlFor="calendar-12h" className="font-bold block mb-2">
+                    <h5>Date & Time</h5>
+                </label>
+                <Calendar id="calendar-12h" value={datetime12h} onChange={(e) => setDateTime12h(e.value)} showTime hourFormat="12" />
+            </div>
+
+                
+        
+
+
+            <hr className='newline' />
+
+        <p className='liable-sentence' > I am liable for any damage of the said A materials and equipment</p>
+
+        <div className="course-year">
+                    <h5>Year Level</h5>
+                    <div className="formgroup-inline">
+                        <div className="field">
+                            <label id="firstname1" className="p-sr-only">
+                                Firstname
+                            </label>
+                            <InputText id="firstname1" type="text" placeholder="Course" />
+                        </div>
+                        <div className="field">
+                            <label id="lastname1" className="p-sr-only">
+                                Lastname
+                            </label>
+                            <InputText id="lastname1" type="text" placeholder="Year" />
+                        </div>
+                    </div>
+                </div>
+
+                <div className="submit-button">
+            <Button onClick={handleSubmitClick} id='submitcolor-button' label="Submit" />
+        </div>
         </>
 
 
