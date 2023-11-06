@@ -13,7 +13,7 @@
 }
 
 
-.Id-box{
+.Id-box-main{
   position: absolute; 
   z-index: 1;
   top: 33%; /* Position it vertically at 50% from the top */
@@ -26,11 +26,13 @@
 .inside-box{
   width: 200%;
   
+  
 }
 
 .password-box1{
   position: absolute; 
   z-index: 1;
+
   top: 50%; /* Position it vertically at 50% from the top */
   left: 55%; /* Position it horizontally at 50% from the left */
   transform: translate(-50%, -50%);
@@ -39,5 +41,63 @@
 .inside-password{
   width: 200;
 
+
+  top: 51%; /* Position it vertically at 50% from the top */
+  left: 55%; /* Position it horizontally at 50% from the left */
+  transform: translate(-50%, -50%); /* Center the component both vertically and horizontally */
+   
+
 }
+.inside-name{
+  width: 200%;
+  
+
+}
+
+
+.email-box{
+  position: absolute; 
+  z-index: 1;
+  top: 58%; /* Position it vertically at 50% from the top */
+  left: 55%; /* Position it horizontally at 50% from the left */
+  transform: translate(-50%, -50%); /* Center the component both vertically and horizontally */
+
+}
+
+.inside-email{
+  width: 200%;
+}
+
+.password-box-main{
+  position: absolute; 
+  z-index: 1;
+  top: 53%; /* Position it vertically at 50% from the top */
+  left: 55%; /* Position it horizontally at 50% from the left */
+  transform: translate(-50%, -50%);
+}
+
+.inside-password{
+  width: 200;
+
+}
+
+
+
+#username-main{
+
+  margin-top: -8px;
+  color: #e65b7a;
+}
+#password-main{
+  
+  margin-top: -27px;
+  margin-left: 10px;
+}
+
+
+
+
+
+
+
 
