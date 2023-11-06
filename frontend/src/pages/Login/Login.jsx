@@ -49,7 +49,7 @@ function Login() {
     const [value, setValue] = useState('');
     const [valueName, setName] = useState('');
     const [valueEmail, setEmail] = useState('');
-    const [valuePass, setPass] = useState('');
+    const [valuePass1, setPass1] = useState('');
     
 
   
@@ -87,8 +87,8 @@ function Login() {
     
             <div className="password-box">
                 <span className="p-float-label">
-                    <Password className="inside-password" value={valuePass} onChange={(e) => setPass(e.target.value)} />
-                    <label id="password">Password</label>
+                    <Password className="inside-password" value={valuePass1} onChange={(e) => setPass1(e.target.value)} />
+                    <label id="password1">Password</label>
                 </span>
             </div>
             <Button onClick={handleloginClick} id='login-button' label="Login" severity="help" rounded />

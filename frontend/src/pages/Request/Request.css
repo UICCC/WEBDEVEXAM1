@@ -129,7 +129,7 @@
     top: 120%; /* Position it vertically at 50% from the top */
     left:30%; /* Position it horizontally at 50% from the left */
     transform: translate(-50%, -50%);
-    width: px;
+    
     font-size: 20px;
     font-weight: 100;
  }
@@ -140,7 +140,7 @@
     top: 125%; /* Position it vertically at 50% from the top */
     left:19%; /* Position it horizontally at 50% from the left */
     transform: translate(-50%, -50%);
-    width: px;
+    
     font-size: 20px;
     font-weight: 100;
 
@@ -151,9 +151,9 @@
     top: 129%; /* Position it vertically at 50% from the top */
     left:19%; /* Position it horizontally at 50% from the left */
     transform: translate(-50%, -50%);
-    width: px;
+    
     font-size: 20px;
     font-weight: 100;
 
  }
-
+ 

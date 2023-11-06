@@ -100,7 +100,7 @@
   .password-box{
     position: absolute; 
     z-index: 1;
-    top: 65%; /* Position it vertically at 50% from the top */
+    top: 67%; /* Position it vertically at 50% from the top */
     left: 55%; /* Position it horizontally at 50% from the left */
     transform: translate(-50%, -50%);
   }
@@ -117,9 +117,10 @@
     margin-top: -8px;
     color: #e65b7a;
   }
-  #password{
+  #password1{
     
-    margin-top: -8px;
+    margin-top: -27px;
+    margin-left: 10px;
   }
   
   

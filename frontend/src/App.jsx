@@ -10,6 +10,10 @@ import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import { Card } from 'primereact/card';
 import { InputText } from "primereact/inputtext";
+import {useNavigate} from 'react-router-dom';
+import { Button } from 'primereact/button';
+import { Password } from 'primereact/password';
+        
         
         
 function App() {
@@ -45,7 +49,7 @@ function App() {
 ];
 
 const [value, setValue] = useState('');
-const [valueName, setName] = useState('');
+const [valuePass, setPass] = useState('');
 
 
   
@@ -61,18 +65,18 @@ const [valueName, setName] = useState('');
       <p className='main-title'> Login to your account</p>
     
       
-        <div className="Id-box">
+        <div className="Id-box-main">
             <span className="p-float-label">
                 <InputText className="inside-box" value={value} onChange={(e) => setValue(e.target.value)} />
-                <label htmlFor="username">ID Number</label>
+                <label id="username-main">ID Number</label>
             </span>
         </div>
-        <div className="name-box">
-            <span className="p-float-label">
-                <InputText className="inside-name" value={valueName} onChange={(e) => setName(e.target.value)} />
-                <label htmlFor="username">Student Name</label>
-            </span>
-        </div>
+        <div className="password-box-main">
+                <span className="p-float-label">
+                    <Password className="inside-password" value={valuePass} onChange={(e) => setPass(e.target.value)} />
+                    <label id="password-main">Password</label>
+                </span>
+            </div>
 
     </div>
     <Button onClick={handleloginClick} id='login-button' label="Login" severity="help" rounded />
@@ -80,7 +84,7 @@ const [valueName, setName] = useState('');
     
     
 
-</div>
+
         
     </>
   )
