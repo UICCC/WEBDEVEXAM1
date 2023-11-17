@@ -9,7 +9,10 @@ import {
 import Login from'./pages/Login/Login.jsx'
 import Request from './pages/Request/Request.tsx';
 import Ticket from'./pages/Request/Ticket/Ticket.tsx';
+<<<<<<< HEAD
 import Admin from './pages/Admin/Admin.tsx';
+=======
+>>>>>>> 4fae8421ade314efc1e9722e8139f515857ccd14
 
 
 const router = createBrowserRouter([
@@ -25,16 +28,22 @@ const router = createBrowserRouter([
     path: "/Request",
     element: <Request />,
   },
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4fae8421ade314efc1e9722e8139f515857ccd14
   {
     path: "/Ticket",
     element: <Ticket />,
   },
+<<<<<<< HEAD
   {
     path: "/Admin",
     element: <Admin />,
   },
 
+=======
+>>>>>>> 4fae8421ade314efc1e9722e8139f515857ccd14
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

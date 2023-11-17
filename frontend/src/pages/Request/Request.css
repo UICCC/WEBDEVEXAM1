@@ -149,7 +149,11 @@
 .purpose-box{
   position: absolute; 
   z-index: 1;
+<<<<<<< HEAD
   top: 78%; /* Position it vertically at 50% from the top */
+=======
+  top: 81%; /* Position it vertically at 50% from the top */
+>>>>>>> 4fae8421ade314efc1e9722e8139f515857ccd14
   left:60%; /* Position it horizontally at 50% from the left */
   transform: translate(-50%, -50%);
   font-size: 20px;
@@ -163,7 +167,11 @@
   
   position: absolute; 
   z-index: 1;
+<<<<<<< HEAD
   top: 74%; /* Position it vertically at 50% from the top */
+=======
+  top: 76%; /* Position it vertically at 50% from the top */
+>>>>>>> 4fae8421ade314efc1e9722e8139f515857ccd14
   left:76%; /* Position it horizontally at 50% from the left */
   transform: translate(-50%, -50%);
   font-size: 20px;
@@ -186,6 +194,7 @@
 
  
 
+<<<<<<< HEAD
 
 .course-year{
   position: absolute; 
@@ -356,3 +365,36 @@
   }
 }
 
+=======
+
+.course-year{
+  position: absolute; 
+  z-index: 1;
+  top: 140%; /* Position it vertically at 50% from the top */
+  left:23%; /* Position it horizontally at 50% from the left */
+  transform: translate(-50%, -50%);
+  height: 30vh;
+  font-size: 20px;
+  font-weight: 100;
+
+}
+
+.submit-button{
+  position: absolute; 
+  z-index: 1;
+  top: 160%; /* Position it vertically at 50% from the top */
+  left:50%; /* Position it horizontally at 50% from the left */
+  transform: translate(-50%, -50%);
+  height: 30vh;
+  font-size: 20px;
+  font-weight: 100;
+
+}
+
+#submitcolor-button{
+  background-color: pink;
+  border: none;
+}
+ 
+ 
+>>>>>>> 4fae8421ade314efc1e9722e8139f515857ccd14
