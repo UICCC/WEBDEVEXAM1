@@ -56,12 +56,12 @@ const [valuePass, setPass] = useState('');
 
   return (
     <>
-     <div className="app-container">
+     <div className="app-container"> </div>
 
 <div className="new-component">
   <Menubar className='navbar' model={items} />
 </div>
-
+      
       <p className='main-title'> Login to your account</p>
     
       
@@ -78,7 +78,7 @@ const [valuePass, setPass] = useState('');
                 </span>
             </div>
 
-    </div>
+    
     <Button onClick={handleloginClick} id='login-button' label="Login" severity="help" rounded />
     <Button onClick={handleSignupClick} id='Signup-button' label="Signup" severity="help" rounded />
     

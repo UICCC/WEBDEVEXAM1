@@ -72,7 +72,7 @@
   position: absolute; 
   z-index: 1;
   top: 53%; /* Position it vertically at 50% from the top */
-  left: 55%; /* Position it horizontally at 50% from the left */
+  left: 54.5%; /* Position it horizontally at 50% from the left */
   transform: translate(-50%, -50%);
 }
 
@@ -92,6 +92,75 @@
   
   margin-top: -27px;
   margin-left: 10px;
+}
+
+
+@media (max-width: 1440px) {
+  .app-container{
+    background-image: url('./assets/images/edited.jpg');
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  background-position: left center;
+  width: 45%;
+  height: 100vh;
+  position: relative; 
+    
+  }
+}
+
+
+@media (max-width: 1920px) {
+  .Id-box-main, .password-box-main{
+    margin-left: 100px;
+    
+  }
+}
+@media (max-width: 1920px) {
+   .password-box-main{
+    margin-left: 100px;
+    margin-top: -20px;
+    
+  }
+}
+
+@media (max-width: 1440px) {
+  .Id-box-main{
+    margin-left: 26px;
+    width: 10%;
+    
+  }
+}
+@media (max-width: 1440px) {
+   .password-box-main{
+    margin-left: 50px;
+    
+  }
+}
+@media (max-width: 1024px) {
+  .app-container{
+    background-image: url('./assets/images/edited.jpg');
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  background-position: left center;
+  width: 40%;
+  height: 100vh;
+  position: relative; 
+    
+  }
+}
+@media (max-width: 1024px) {
+  .Id-box-main{
+    margin-left: 1.4px;
+    width: 9.65%;
+    
+  }
+}
+@media (max-width: 1024px) {
+   .password-box-main{
+    margin-top: 10px;
+    margin-left: 45px;
+    
+  }
 }
 
 

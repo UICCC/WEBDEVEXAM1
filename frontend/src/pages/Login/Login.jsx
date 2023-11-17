@@ -56,7 +56,7 @@ function Login() {
       
     return(
         <>
-        <div className="app-container1">
+        <div className="app-container1"> </div>
     
         <div className="new-component">
           <Menubar className='navbar' model={items} />
@@ -96,7 +96,7 @@ function Login() {
             
             
     
-        </div>
+        
        
     
          

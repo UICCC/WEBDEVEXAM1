@@ -35,3 +35,38 @@ background-color: #e65b7a;;
   width: 200px;
   background-color: #e65b7a;;
 }
+
+@media (max-width: 1920px) {
+  #login-button, #Signup-button{
+    margin-left: 100px;
+    
+  }
+}
+@media (max-width: 1440px) {
+  #login-button {
+    margin-left: 30px;
+    width: 10%;
+    
+  }
+}
+@media (max-width: 1440px) {
+   #Signup-button{
+    margin-left: 25px;
+    width: 10%;
+    
+  }
+}
+@media (max-width: 1024px) {
+  #login-button {
+    margin-left: 3px;
+    width: 10%;
+    
+  }
+}
+@media (max-width: 1024px) {
+   #Signup-button{
+    margin-left: 2px;
+    width: 10%;
+    
+  }
+}

@@ -75,11 +75,12 @@
     top: 51%; /* Position it vertically at 50% from the top */
     left: 55%; /* Position it horizontally at 50% from the left */
     transform: translate(-50%, -50%); /* Center the component both vertically and horizontally */
-     
+    margin-top: -40px; 
   
   }
   .inside-name{
     width: 200%;
+    
     
   }
   
@@ -90,7 +91,7 @@
     top: 58%; /* Position it vertically at 50% from the top */
     left: 55%; /* Position it horizontally at 50% from the left */
     transform: translate(-50%, -50%); /* Center the component both vertically and horizontally */
-  
+    margin-top: -60px;   
   }
   
   .inside-email{
@@ -101,8 +102,9 @@
     position: absolute; 
     z-index: 1;
     top: 67%; /* Position it vertically at 50% from the top */
-    left: 55%; /* Position it horizontally at 50% from the left */
+    left: 54.5%; /* Position it horizontally at 50% from the left */
     transform: translate(-50%, -50%);
+    margin-top: -80px; 
   }
   
   .inside-password{
@@ -122,5 +124,145 @@
     margin-top: -27px;
     margin-left: 10px;
   }
+  
+
+  @media (max-width: 1920px) {
+    .new-component{
+      position: absolute; 
+    z-index: 1;
+    top: 8%; /* Position it vertically at 50% from the top */
+    left: 65%; /* Position it horizontally at 50% from the left */
+    transform: translate(-50%, -50%); /* Center the component both vertically and horizontally */
+    width: 32%;
+      
+    }
+  }
+  
+  @media (max-width: 1920px) {
+    .main-title{
+      margin-left: 100px;
+      
+    }
+  }
+  @media (max-width: 1920px) {
+    .Id-box, .name-box, .email-box, .password-box{
+      margin-left: 100px;
+      
+    }
+  }
+ 
+
+  
+  @media (max-width: 1440px) {
+    .main-title{
+      margin-left: 50px;
+      
+    }
+  }
+  @media (max-width: 1440px) {
+    .new-component{
+    position: absolute; 
+    z-index: 1;
+    top: 8%; /* Position it vertically at 50% from the top */
+    left: 67%; /* Position it horizontally at 50% from the left */
+    transform: translate(-50%, -50%); /* Center the component both vertically and horizontally */
+    width: 38%;
+    
+      
+    }
+  }
+  @media (max-width: 1440px) {
+    .navbar-text, .p-menuitem-icon{
+      font-size: 13px;
+       
+      
+      
+    }
+  }
+  @media (max-width: 1440px) {
+    .Id-box, .name-box, .email-box, .password-box{
+      margin-left: 50px;
+      
+    }
+  }
+  @media (max-width: 1440px) {
+    .app-container1{
+      background-image: url('./images/edited2.jpg');
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: left center;
+    width: 45%;
+    height: 100vh;
+    position: relative; 
+      
+    }
+  }
+ 
+
+  
+
+  @media (max-width: 1024px) {
+    .main-title{
+      margin-left: 200px;
+      
+    }
+  }
+  @media (max-width: 1024px) {
+    .new-component{
+        position: absolute; 
+    z-index: 1;
+    top: 8%; /* Position it vertically at 50% from the top */
+    left: 70%; /* Position it horizontally at 50% from the left */
+    transform: translate(-50%, -50%); /* Center the component both vertically and horizontally */
+    width: 55%;
+      
+      
+    }
+  }
+  @media (max-width: 1024px) {
+    .navbar-text, .p-menuitem-icon{
+      font-size: 9  px;
+       
+      
+      
+    }
+  }
+  @media (max-width: 1024px) {
+    .navbar-text-uic{
+      font-size: 17px;
+       
+      
+      
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .main-title{
+      margin-left: 50px;
+      
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .app-container1{
+      background-image: url('./images/edited2.jpg');
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: left center;
+    width: 40%;
+    height: 100vh;
+    position: relative; 
+      
+    }
+  }
+ 
+
+
+
+
+
+
+
+  
   
   

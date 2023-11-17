@@ -1,0 +1,135 @@
+/* Admin.css */
+
+.admin-header {
+    
+    color: #e65b7a; 
+    margin-right: 570px;
+
+  }
+  
+  .search-input {
+    width: 100%;
+
+  }
+ .navbartextsuic{
+    color: #e65b7a;
+    font-size: 25px;
+ }
+
+  @media (max-width: 1231px) {
+    .admin-header{
+        margin-right: 0px;
+    }
+  }
+
+  .sidebar-menu{
+    margin-top: 100px;
+    width: 10%;
+    margin-left: 20px;
+  }
+  .sidebar-menu-options{
+    
+  }
+  .p-panelmenu-header-link{
+
+  }
+  
+  #pr_id_4_header{
+    background-color: pink;
+    
+  }
+
+  .panelmenu-bar{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 10px;
+  }
+
+  .vl {
+    border-left: 2px solid pink;
+    height: 100%;
+    position: absolute;
+    left: 12%;
+    margin-left: -3px;
+    top: 0;
+    z-index: -1;
+  }
+
+  /* Admin.css */
+
+/* Styling for Menubar icons */
+.wh .p-menubar .p-menuitem .p-menuitem-link .pi {
+  /* Your styles for Menubar icons */
+  color: pink !important; /* You can use !important to force the style */
+  /* Add other styles as needed */
+}
+
+/* Styling for PanelMenu icons */
+.sidebar-menu .p-panelmenu .p-panelmenu-header .pi {
+  /* Your styles for PanelMenu icons */
+  
+  color: white   !important; /* You can use !important to force the style */
+  /* Add other styles as needed */
+}
+
+@media (max-width: 1080px) {
+  .sidebar-menu{
+    font-size: 10px;
+    margin-left: 0px;
+    
+  }
+}
+
+@media (max-width: 1080px) {
+  .panelmenu-bar{
+    font-size: 10px;
+    display: none;
+    
+  }
+}
+
+.ytable{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 1rem;
+  width: 70%;
+  left: 20%;
+  top: 17%;
+  position: absolute;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid #ffffff;
+  text-align: left;
+  padding: 8px;
+  font-size: 32px;
+}
+
+th {
+  background-color: rgb(250, 131, 151);
+}
+
+td {
+  background-color: rgb(255, 194, 207);
+}
+
+form {
+  display: flex;
+  gap: 5px;
+}
+
+form td:last-child {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+form * {
+  font-size: 28px;
+}
