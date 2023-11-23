@@ -8,12 +8,12 @@
     position: relative; /* Add this to establish a positioning context */
   }
   .try-container{
-    height: 40vh;
+    height: 80vh;
     background-color:#e65b7950;
     width: 40%;
     position: absolute;
     left: 45%;
-    top: 30%;
+    top: 10%;
     border-radius: 20px;
   }
 
@@ -27,7 +27,205 @@
     font-size: 20px;
     position: absolute;
     left: 10%;
-    top: 30%;
+    top: 18%;
     width: 600px;
 
+  }
+  .equipmentborrowed{
+    font-size: 20px;
+    position: absolute;
+    left: 10%;
+    top: 38%;
+    width: 600px;
+
+  }
+  .equipmentticketbox{
+    
+    position: absolute;
+    left: 37%;
+    top: 37.5%;
+    
+
+  }
+  .purposeticket{
+    font-size: 20px;
+    position: absolute;
+    left: 10%;
+    top: 45%;
+    width: 600px;
+
+  }
+  .purposeticketbox{
+    position: absolute;
+    left: 22%;
+    top: 44.5%;
+    
+
+  }
+  
+  .datetimeticket{
+    font-size: 20px;
+    position: absolute;
+    left: 10%;
+    top: 52%;
+    width: 600px;
+
+  }
+  .dateticketbox{
+    position: absolute;
+    left: 28%;
+    top: 51.5%;
+
+  }
+
+  @media (max-width: 1440px) {
+    .ticket-picture {
+      background-image: url('./images/ticket-picture.jpg');
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: left center;
+    width: 45%;
+    height: 100vh;
+    position: relative; 
+      
+    }
+  }
+  @media (max-width: 1440px) {
+    .try-container {
+      height: 80vh;
+      background-color:#e65b7950;
+      width: 100%;
+      position: absolute;
+      left: 110%;
+      top: 10%;
+      border-radius: 20px;
+
+      
+      
+    }
+  }
+  
+  @media (max-width: 1440px) {
+    .equipmentticketbox {
+      position: absolute;
+      left: 42%;
+      top: 37.5%;
+      
+      
+    }
+  }
+  
+  @media (max-width: 1440px) {
+    .purposeticketbox{
+      position: absolute;
+      left: 24%;
+      top: 44.5%;
+      
+      
+      
+    }
+  }
+  @media (max-width: 1440px) {
+    .dateticketbox{
+      position: absolute;
+    left: 32%;
+    top: 51.5%;
+      
+      
+      
+    }
+  }
+  @media (max-width: 1024px) {
+    .ticket-picture {
+      background-image: url('./images/ticket-picture.jpg');
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: left center;
+    width: 45%;
+    height: 112.7vh;
+    position: relative; 
+      
+    }
+  }
+  @media (max-width: 1024px) {
+    .try-container {
+      height: 80vh;
+      background-color:#e65b7950;
+      width: 130%;
+      position: absolute;
+      left: 110%;
+      top: 10%;
+      border-radius: 20px;
+
+      
+      
+    }
+  }
+  @media (max-width: 1024px) {
+    .thanks-subtile{
+      font-size: 15px;
+      position: absolute;
+      left: 10%;
+      top: 18%;
+      width: 600px;
+
+      
+      
+    }
+  }
+  @media (max-width: 768px) {
+    .ticket-picture {
+      background-image: url('./images/ticket-picture.jpg');
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: left center;
+    width: 45%;
+    height: 131vh;
+    position: relative; 
+      
+    }
+  }
+  @media (max-width: 768px) {
+    .try-container {
+      height: 80vh;
+      background-color:#e65b7950;
+      width: 170%;
+      position: absolute;
+      left: 110%;
+      top: 10%;
+      border-radius: 20px;
+
+      
+      
+    }
+  }
+  @media (max-width: 768px) {
+    .equipmentticketbox {
+      position: absolute;
+      left: 44%;
+      top: 37.5%;
+      
+      
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .purposeticketbox{
+      position: absolute;
+      left: 26%;
+      top: 44.5%;
+      
+      
+      
+    }
+  }
+  @media (max-width: 768px) {
+    .dateticketbox{
+      position: absolute;
+    left: 34%;
+    top: 51.5%;
+      
+      
+      
+    }
   }
