@@ -4,6 +4,11 @@ import React, { useEffect, useState } from 'react';
 import { Menubar } from 'primereact/menubar';
 import {useNavigate} from 'react-router-dom';
 import { Rating } from "primereact/rating";
+import { InputTextarea } from "primereact/inputtextarea";
+
+import { Button } from 'primereact/button';
+        
+
 interface InputValue {
     name: string;
     code: string;
@@ -85,7 +90,8 @@ function Equipments() {
     ];
 
     const [valueStar, setStar] = useState(null);
-      
+    const [valuefeedback, setfeedback] = useState('');
+
     return(
         <>
         
@@ -115,6 +121,15 @@ function Equipments() {
             <div className="ratingstar">
             <Rating value={valueStar} onChange={(e) => setStar(e.value)} />
             </div>
+            <div className="feeback-purpose-box">
+            <InputTextarea autoResize value={valuefeedback} onChange={(e) => setfeedback(e.target.value)} rows={5} cols={30} placeholder="Enter your additional feedback here..." />
+        </div>
+        <div className="feedback-submit-button">
+            <Button label="Submit" />
+        </div>
+
+
+
             </div>
     
          
