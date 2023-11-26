@@ -215,6 +215,14 @@
   background-color: pink;
   border: none;
 }
+th {
+  background-color: rgb(250, 131, 151);
+}
+
+td {
+  background-color: rgb(255, 194, 207);
+}
+
  
 @media (max-width: 1440px) {
   .first-dropdown{
