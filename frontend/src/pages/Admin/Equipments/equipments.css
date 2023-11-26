@@ -1,0 +1,74 @@
+
+
+
+.forpicture{
+    background-image: url('./images/uic-logo.png');
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: left center;
+    width: 90%;
+    height: 50vh;
+    left: 3%;
+    margin-top: 70px;
+    position: relative; /* Add this to establish a positioning context */
+}
+
+
+.feedbkac-sentence{
+    position: absolute;
+    left: 33%;
+    top: 20%;
+    width: 700px;
+    font-size: 20px;
+}
+.feebacksentence2{
+    position: absolute;
+    left: 35%;
+    top: 35%;
+    width: 800px;
+    font-size: 15px;
+
+}
+
+.ticket-component {
+    width: 100%;
+ }
+ 
+  
+  .ticketnavbar{
+    color: black;
+  }
+  
+  .navbar-text-uic{
+    font-size: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #e65b7a;
+  }
+.p-menubar-root-list{
+  
+    position: relative;
+    left: 35%;
+}  
+
+
+
+
+.adjustfeedback{
+    position: absolute;
+    top: 40%;
+    left: 45%;
+}
+.multiselect-custom{
+    background-color: pink;
+    max-width: 300px;
+    
+    
+
+}
+.ratingstar{
+margin-top: 20px;
+margin-left: 8px;
+   
+
+}
