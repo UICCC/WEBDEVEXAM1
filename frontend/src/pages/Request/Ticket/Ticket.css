@@ -77,6 +77,15 @@
     top: 51.5%;
 
   }
+  .sendusfeedback{
+    position: absolute;
+    top: 80%;
+    left: 20%;
+    background-color: transparent;
+    border: none;
+    text-decoration: underline;
+    color: black;
+  }
 
   @media (max-width: 1440px) {
     .ticket-picture {

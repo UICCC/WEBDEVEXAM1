@@ -3,6 +3,8 @@ import './Ticket.css'
 import { InputText } from 'primereact/inputtext';
         
 
+import { Button } from 'primereact/button';
+        
 
 function Ticket() {
     const [valueequipment, setValueticket] = useState('');
@@ -43,6 +45,8 @@ function Ticket() {
             <InputText value={valuedate} onChange={(e) => setValuedate(e.target.value)} />
         </div>
 
+
+        <Button className='sendusfeedback' label="Click Here to send us a feedback regarding the equipments" severity="info" rounded />
         
 
 

@@ -10,7 +10,7 @@ import Login from'./pages/Login/Login.jsx'
 import Request from './pages/Request/Request.tsx';
 import Ticket from'./pages/Request/Ticket/Ticket.tsx';
 import Admin from './pages/Admin/Admin.jsx';
-import Equipments from './pages/Admin/Equipments/equipments.jsx'
+import Equipments from './pages/Admin/Equipments/equipments.tsx'
 
 
 const router = createBrowserRouter([
