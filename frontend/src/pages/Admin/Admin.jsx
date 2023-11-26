@@ -3,19 +3,21 @@ import { Menubar } from 'primereact/menubar';
 import { InputText } from 'primereact/inputtext';
 import './Admin.css'; // Import the CSS file
 import { PanelMenu } from 'primereact/panelmenu';
-
+import {useNavigate} from 'react-router-dom';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Button } from 'primereact/button';
 
 function Admin() {
 
-   
+  const navigate = useNavigate();
+  const handleloginClick = () => navigate('/');
+  const handleequipmentsClick = () => navigate('/Equipments');
 
     const itemsadmin = [
         
         {
-            label: <div className='navbartexts'>Home </div>,
+            label: <div className='navbartexts' onClick={handleloginClick}>Home </div>,
             icon: 'pi pi-fw pi-file',
             
         },
@@ -29,7 +31,7 @@ function Admin() {
             
         },
         {
-          label: <div className='navbartexts'>Equipments </div>,
+          label: <div className='navbartexts' onClick={handleequipmentsClick}>Equipments </div>,
             icon: 'pi pi-fw pi-calendar',
             
         },
@@ -47,7 +49,7 @@ function Admin() {
            
         },
         {
-            label: <div className='panelmenu-bar'>Equipments </div>,
+            label: <div className='panelmenu-bar' onClick={handleequipmentsClick}>Equipments </div>,
             icon: 'pi pi-fw pi-shopping-cart',
             
         },
@@ -65,6 +67,7 @@ function Admin() {
         id: 1,
         name: "NameHere",
         description: "Equipment"
+        
       },
         {
           time: "time",
