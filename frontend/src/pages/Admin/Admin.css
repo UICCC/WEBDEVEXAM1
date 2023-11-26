@@ -81,7 +81,47 @@
   margin-top: -600px;
   
 }
-
+@media (max-width: 1440px) {
+  .sidebar-menu{
+    font-size: 10px;
+    margin-left: 10px;
+    
+  }
+}
+@media (max-width: 1080px) {
+  .master-detail-container{
+    font-size: 10px;
+    margin-top: 400px;
+    margin-left: 300px;
+    position: absolute;
+    right: 10%;
+    
+  }
+}
+@media (max-width: 1024px) {
+  .master-detail-container{
+    font-size: 10px;
+    margin-top: 400px;
+    margin-left: 300px;
+    position: absolute;
+    right: 10%;
+    
+  }
+}
+@media (max-width: 1024px) {
+  .sidebar-menu{
+    font-size: 10px;
+    margin-left: 10px;
+    
+  }
+}
+@media (max-width: 1440px) {
+  .master-detail-container{
+    font-size: 10px;
+    margin-left: 300px;
+    
+  }
+}
 
 
 @media (max-width: 1080px) {
@@ -96,6 +136,13 @@
   .panelmenu-bar{
     font-size: 10px;
     display: none;
+    
+  }
+}
+@media (max-width: 768px) {
+  .p-datatable-wrapper{
+    font-size: 10px;
+    
     
   }
 }

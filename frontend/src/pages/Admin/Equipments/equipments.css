@@ -7,8 +7,8 @@
     background-repeat: no-repeat;
     background-position: left center;
     width: 90%;
-    height: 50vh;
-    left: 3%;
+    height: 45vh;
+    left: 2%;
     margin-top: 70px;
     position: relative; /* Add this to establish a positioning context */
 }
@@ -31,7 +31,7 @@
 }
 
 .ticket-component {
-    width: 100%;
+    width: 31.5%;
  }
  
   
@@ -45,10 +45,11 @@
     padding-right: 10px;
     color: #e65b7a;
   }
-.p-menubar-root-list{
+.ticketnavbar2{
   
     position: relative;
-    left: 35%;
+    left: 110%;
+    margin-top: 50px;
 }  
 
 
