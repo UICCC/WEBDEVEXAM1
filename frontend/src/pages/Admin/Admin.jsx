@@ -32,7 +32,7 @@ function Admin() {
             
         },
         {
-          label: <div className='navbartexts' onClick={handleequipmentsClick}>Equipments </div>,
+          label: <div className='navbartexts' onClick={handlEquipandtoolsClick}>Equipments </div>,
             icon: 'pi pi-fw pi-calendar',
             
         },

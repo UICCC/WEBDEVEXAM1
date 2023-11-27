@@ -23,6 +23,7 @@ function App() {
   const handleSignupClick = () => navigate('/Login');
   const handleAdminClick = () => navigate('/Admin');
   const handleequipmentsClick = () => navigate('/Equipments');
+  const handleStudentloginClick = () => navigate('/Request');
 
   
   const items = [
@@ -84,7 +85,7 @@ const [valuePass, setPass] = useState('');
     
     <Button onClick={handleloginClick} id='login-button' label="Login" severity="help" rounded />
     <Button onClick={handleSignupClick} id='Signup-button' label="Signup" severity="help" rounded />
-    
+    <Button onClick={handleStudentloginClick} id='studentpage-button' label="Studentlogin" severity="help" rounded />
     
 
 

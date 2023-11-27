@@ -15,6 +15,8 @@ interface InputValue {
 }
 
 function Request() {
+    
+    
 
     const items = [
         {
@@ -101,6 +103,10 @@ function Request() {
 
     const navigate = useNavigate();
   const handleSubmitClick = () => navigate('/Ticket');
+  const handleloginClick = () => navigate('/');
+  const handleSignupClick = () => navigate('/Login');
+  const handleAdminClick = () => navigate('/Admin');
+  const handleequipmentsClick = () => navigate('/Equipments');
 
 
 

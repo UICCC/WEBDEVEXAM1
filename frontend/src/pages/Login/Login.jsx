@@ -40,7 +40,7 @@ function Login() {
             
         },
         {
-          label: <div className='navbar-text'onClick={handleequipmentsClick}>Equipments </div>,
+          label: <div className='navbar-text'onClick={handleequipmentsClick}>Feedback </div>,
             icon: 'pi pi-fw pi-calendar',
             
         },
