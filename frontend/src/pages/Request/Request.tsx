@@ -15,17 +15,22 @@ interface InputValue {
 }
 
 function Request() {
-    
+    const navigate = useNavigate();
+    const handleSubmitClick = () => navigate('/Ticket');
+    const handleloginClick = () => navigate('/');
+    const handleSignupClick = () => navigate('/Login');
+    const handleAdminClick = () => navigate('/Admin');
+    const handleequipmentsClick = () => navigate('/Equipments');
     
 
     const items = [
         {
-            label: <div className='navbar-text'>Home </div>,
+            label: <div className='navbar-text'onClick={handleloginClick}>Home </div>,
             icon: 'pi pi-fw pi-file',
             
         },
         {
-          label: <div className='navbar-text'>Overview </div>,
+          label: <div className='navbar-text'onClick={handleAdminClick}>Overview </div>,
             icon: 'pi pi-fw pi-pencil',
            
         },
@@ -34,7 +39,7 @@ function Request() {
             
         },
         {
-          label: <div className='navbar-text'>Equipments </div>,
+          label: <div className='navbar-text'onClick={handleequipmentsClick}>Feedback</div>,
             icon: 'pi pi-fw pi-calendar',
             
         },
@@ -101,12 +106,7 @@ function Request() {
         
     ];
 
-    const navigate = useNavigate();
-  const handleSubmitClick = () => navigate('/Ticket');
-  const handleloginClick = () => navigate('/');
-  const handleSignupClick = () => navigate('/Login');
-  const handleAdminClick = () => navigate('/Admin');
-  const handleequipmentsClick = () => navigate('/Equipments');
+   
 
 
 
