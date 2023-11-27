@@ -31,19 +31,56 @@
     width: 600px;
 
   }
+
+  .borrowername{
+    font-size: 20px;
+    position: absolute;
+    left: 10%;
+    top: 30%;
+    width: 600px;
+    
+  }
+  .borrowernamebox{
+    position: absolute;
+    left: 40%;
+    top: 30%;
+    
+  }
+  .borrowercourse{
+    font-size: 20px;
+    position: absolute;
+    left: 10%;
+    top: 56%;
+    width: 600px;
+    
+  }
+  .borrowercoursebox{
+    position: absolute;
+    left: 40%;
+    top: 56%;
+    
+  }
+
+
+
   .equipmentborrowed{
     font-size: 20px;
     position: absolute;
     left: 10%;
-    top: 38%;
+    top: 37%;
     width: 600px;
 
   }
+
+  
+
+
+
   .equipmentticketbox{
     
     position: absolute;
-    left: 37%;
-    top: 37.5%;
+    left: 40%;
+    top: 36.5%;
     
 
   }
@@ -51,14 +88,14 @@
     font-size: 20px;
     position: absolute;
     left: 10%;
-    top: 45%;
+    top: 43%;
     width: 600px;
 
   }
   .purposeticketbox{
     position: absolute;
-    left: 22%;
-    top: 44.5%;
+    left: 40%;
+    top: 43%;
     
 
   }
@@ -67,14 +104,42 @@
     font-size: 20px;
     position: absolute;
     left: 10%;
-    top: 52%;
+    top: 50%;
     width: 600px;
 
   }
   .dateticketbox{
     position: absolute;
-    left: 28%;
-    top: 51.5%;
+    left: 40%;
+    top: 49.5%;
+
+  }
+  .requestdateborrow{
+    font-size: 20px;
+    position: absolute;
+    left: 10%;
+    top: 62.5%;
+    width: 600px;
+
+  }
+  .requestdatebox{
+    position: absolute;
+    left: 40%;
+    top: 62.5%;
+
+  }
+  .returndateborrow{
+    font-size: 20px;
+    position: absolute;
+    left: 10%;
+    top: 69%;
+    width: 600px;
+
+  }
+  .returndatebox{
+    position: absolute;
+    left: 40%;
+    top: 68.5%;
 
   }
   .sendusfeedback{

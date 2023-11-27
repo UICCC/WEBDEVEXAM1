@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './Ticket.css'
 import { InputText } from 'primereact/inputtext';
-        
+import {useNavigate} from 'react-router-dom';
 
 import { Button } from 'primereact/button';
         
@@ -10,6 +10,12 @@ function Ticket() {
     const [valueequipment, setValueticket] = useState('');
     const [valuepurpose, setValuepurpose] = useState('');
     const [valuedate, setValuedate] = useState('');
+
+    const navigate = useNavigate();
+   
+    const handleequipmentsClick = () => navigate('/Equipments');
+    
+  
 
     return(
         <>
@@ -23,6 +29,19 @@ function Ticket() {
         </div>
         <div className='thanks-subtile'>
             <p> We have recieved you application and will get back to you soon <b>God bless! </b></p>
+        </div>
+
+        <div className='borrowername'>
+            <p>BorrowerName: </p>
+            </div>
+            <div className="borrowernamebox">
+            <InputText value={valueequipment} onChange={(e) => setValueticket(e.target.value)} />
+        </div>
+        <div className='borrowercourse'>
+            <p>Course: </p>
+            </div>
+            <div className="borrowercoursebox">
+            <InputText value={valueequipment} onChange={(e) => setValueticket(e.target.value)} />
         </div>
 
         <div className='equipmentborrowed'>
@@ -45,8 +64,21 @@ function Ticket() {
             <InputText value={valuedate} onChange={(e) => setValuedate(e.target.value)} />
         </div>
 
+        <div className='requestdateborrow'>
+            <p> Request Date: </p>
+            </div>
+            <div className="requestdatebox">
+            <InputText value={valuedate} onChange={(e) => setValuedate(e.target.value)} />
+        </div>
+        <div className='returndateborrow'>
+            <p> Return Date: </p>
+            </div>
+            <div className="returndatebox">
+            <InputText value={valuedate} onChange={(e) => setValuedate(e.target.value)} />
+        </div>
 
-        <Button className='sendusfeedback' label="Click Here to send us a feedback regarding the equipments" severity="info" rounded />
+
+        <Button onClick={handleequipmentsClick} className='sendusfeedback' label="Click Here to send us a feedback regarding the equipments" severity="info" rounded />
         
 
 
