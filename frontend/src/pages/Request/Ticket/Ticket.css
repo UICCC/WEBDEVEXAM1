@@ -19,14 +19,14 @@
 
   .thanks{
     position: absolute;
-    left: 10%;
-    top: 10%;
+    left: 48%;
+    top: 12%;
   }
 
   .thanks-subtile{
     font-size: 20px;
     position: absolute;
-    left: 10%;
+    left: 48%;
     top: 18%;
     width: 600px;
 
@@ -35,28 +35,28 @@
   .borrowername{
     font-size: 20px;
     position: absolute;
-    left: 10%;
+    left: 48%;
     top: 30%;
     width: 600px;
     
   }
   .borrowernamebox{
     position: absolute;
-    left: 40%;
+    left: 58%;
     top: 30%;
     
   }
   .borrowercourse{
     font-size: 20px;
     position: absolute;
-    left: 10%;
+    left: 48%;
     top: 56%;
     width: 600px;
     
   }
   .borrowercoursebox{
     position: absolute;
-    left: 40%;
+    left: 58%;
     top: 56%;
     
   }
@@ -66,7 +66,7 @@
   .equipmentborrowed{
     font-size: 20px;
     position: absolute;
-    left: 10%;
+    left: 48%;
     top: 37%;
     width: 600px;
 
@@ -79,7 +79,7 @@
   .equipmentticketbox{
     
     position: absolute;
-    left: 40%;
+    left: 58%;
     top: 36.5%;
     
 
@@ -87,14 +87,14 @@
   .purposeticket{
     font-size: 20px;
     position: absolute;
-    left: 10%;
+    left: 48%;
     top: 43%;
     width: 600px;
 
   }
   .purposeticketbox{
     position: absolute;
-    left: 40%;
+    left: 58%;
     top: 43%;
     
 
@@ -103,54 +103,256 @@
   .datetimeticket{
     font-size: 20px;
     position: absolute;
-    left: 10%;
+    left: 48%;
     top: 50%;
     width: 600px;
 
   }
   .dateticketbox{
     position: absolute;
-    left: 40%;
+    left: 58%;
     top: 49.5%;
 
   }
   .requestdateborrow{
     font-size: 20px;
     position: absolute;
-    left: 10%;
+    left: 48%;
     top: 62.5%;
     width: 600px;
 
   }
   .requestdatebox{
     position: absolute;
-    left: 40%;
+    left: 58%;
     top: 62.5%;
 
   }
   .returndateborrow{
     font-size: 20px;
     position: absolute;
-    left: 10%;
+    left: 48%;
     top: 69%;
     width: 600px;
 
   }
   .returndatebox{
     position: absolute;
-    left: 40%;
+    left: 58%;
     top: 68.5%;
 
   }
   .sendusfeedback{
     position: absolute;
     top: 80%;
-    left: 20%;
+    left: 53%;
     background-color: transparent;
     border: none;
     text-decoration: underline;
     color: black;
   }
+  
+  @media (max-width: 1809px) {
+    .ticket-picture {
+      background-image: url('./images/ticket-picture.jpg');
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: left center;
+    width: 10%;
+    height: 100vh;
+    position: relative; 
+    
+      
+    }
+  }
+
+  @media (max-width: 1809px) {
+    .try-container {
+      height: 80vh;
+      background-color:#e65b7950;
+      width: 40%;
+      position: absolute;
+      left: 53%;
+      top: 10%;
+      border-radius: 20px;
+
+      
+      
+    }
+  }
+  @media (max-width: 1809px) {
+    .thanks {
+      position: absolute;
+    left: 56%;
+    top: 12%;
+
+      
+      
+    }
+  }
+  @media (max-width: 1809px) {
+    .thanks-subtile{
+      font-size: 20px;
+    position: absolute;
+    left: 56%;
+    top: 18%;
+    width: 600px;
+
+      
+      
+    }
+  }
+
+  @media (max-width: 1809px) {
+    .borrowername {
+      font-size: 20px;
+    position: absolute;
+    left: 57%;
+    top: 30%;
+    width: 600px;
+      
+    }
+  }
+  @media (max-width: 1809px) {
+    .borrowernamebox{
+      position: absolute;
+      left: 68%;
+      top: 30%;
+      
+    }
+  }
+
+  @media (max-width: 1809px) {
+    .purposeticket{
+      font-size: 20px;
+      position: absolute;
+      left: 57%;
+      top: 43%;
+      width: 600px;
+  
+    }
+  }
+  @media (max-width: 1809px) {
+    .purposeticketbox{
+      position: absolute;
+      left: 68%;
+      top: 43%;
+      
+  
+    }
+  }
+  @media (max-width: 1809px) {
+    .datetimeticket{
+      font-size: 20px;
+      position: absolute;
+      left: 57%;
+      top: 50%;
+      width: 600px;
+  
+    }
+  }
+  @media (max-width: 1809px) {
+    .dateticketbox{
+      position: absolute;
+      left: 68%;
+      top: 49.5%;
+  
+    }
+  }
+  @media (max-width: 1809px) {
+    .borrowercourse{
+      font-size: 20px;
+      position: absolute;
+      left: 57%;
+      top: 56%;
+      width: 600px;
+      
+    }
+  }
+  @media (max-width: 1809px) {
+    .borrowercoursebox{
+      position: absolute;
+      left: 68%;
+      top: 56%;
+      
+    }
+  
+  }
+  @media (max-width: 1809px) {
+    .requestdateborrow{
+      font-size: 20px;
+      position: absolute;
+      left: 57%;
+      top: 62.5%;
+      width: 600px;
+  
+    }
+  
+  }
+  @media (max-width: 1809px) {
+    .requestdatebox{
+      position: absolute;
+      left: 68%;
+      top: 62.5%;
+  
+    }
+  
+  }
+  @media (max-width: 1809px) {
+    .returndateborrow{
+      font-size: 20px;
+      position: absolute;
+      left: 57%;
+      top: 69%;
+      width: 600px;
+  
+    }
+  
+  }
+  @media (max-width: 1809px) {
+    .returndatebox{
+      position: absolute;
+      left: 68%;
+      top: 68.5%;
+  
+    }
+  }
+
+  @media (max-width: 1809px) {
+    .sendusfeedback{
+      position: absolute;
+      top: 80%;
+      left: 61%;
+      background-color: transparent;
+      border: none;
+      text-decoration: underline;
+      color: black;
+    }
+  }
+
+  
+
+  @media (max-width: 1809px) {
+    .equipmentticketbox {
+      position: absolute;
+      left: 68%;
+      top: 37.5%;
+      
+      
+    }
+  }
+  @media (max-width: 1809px) {
+    .equipmentborrowed{
+      font-size: 20px;
+      position: absolute;
+      left: 57%;
+      top: 37%;
+      width: 600px;
+  
+    }
+
+    }
+  
 
   @media (max-width: 1440px) {
     .ticket-picture {
@@ -178,37 +380,199 @@
       
     }
   }
-  
   @media (max-width: 1440px) {
-    .equipmentticketbox {
+    .try-container {
+      height: 80vh;
+      background-color:#e65b7950;
+      width: 100%;
       position: absolute;
-      left: 42%;
-      top: 37.5%;
+      left: 110%;
+      top: 10%;
+      border-radius: 20px;
+
       
       
     }
   }
+  @media (max-width: 1440px) {
+    .thanks {
+      position: absolute;
+    left: 115%;
+    top: 12%;
+    width: 500px;
+
+      
+      
+    }
+  }
+  @media (max-width: 1440px) {
+    .thanks-subtile{
+      font-size: 20px;
+    position: absolute;
+    left: 115%;
+    top: 18%;
+    width: 600px;
+
+      
+      
+    }
+  }
+
+  @media (max-width: 1440px) {
+    .borrowername {
+      font-size: 20px;
+    position: absolute;
+    left: 117%;
+    top: 30%;
+    width: 600px;
+      
+    }
+  }
+  @media (max-width: 1440px) {
+    .borrowernamebox{
+      position: absolute;
+      left: 147%;
+      top: 30%;
+      
+    }
+  }
+
+  @media (max-width: 1440px) {
+    .purposeticket{
+      font-size: 20px;
+      position: absolute;
+      left: 117%;
+      top: 43%;
+      width: 600px;
   
+    }
+  }
   @media (max-width: 1440px) {
     .purposeticketbox{
       position: absolute;
-      left: 24%;
-      top: 44.5%;
+      left: 147%;
+      top: 43%;
       
-      
-      
+  
+    }
+  }
+  @media (max-width: 1440px) {
+    .datetimeticket{
+      font-size: 20px;
+      position: absolute;
+      left: 117%;
+      top: 50%;
+      width: 600px;
+  
     }
   }
   @media (max-width: 1440px) {
     .dateticketbox{
       position: absolute;
-    left: 32%;
-    top: 51.5%;
+      left: 147%;
+      top: 49.5%;
+  
+    }
+  }
+  @media (max-width: 1440px) {
+    .borrowercourse{
+      font-size: 20px;
+      position: absolute;
+      left: 117%;
+      top: 56%;
+      width: 600px;
       
+    }
+  }
+  @media (max-width: 1440px) {
+    .borrowercoursebox{
+      position: absolute;
+      left: 147%;
+      top: 56%;
+      
+    }
+  
+  }
+  @media (max-width: 1440px) {
+    .requestdateborrow{
+      font-size: 20px;
+      position: absolute;
+      left: 1177%;
+      top: 62.5%;
+      width: 600px;
+  
+    }
+  
+  }
+  @media (max-width: 1440px) {
+    .requestdatebox{
+      position: absolute;
+      left: 147%;
+      top: 62.5%;
+  
+    }
+  
+  }
+  @media (max-width: 1440px) {
+    .returndateborrow{
+      font-size: 20px;
+      position: absolute;
+      left: 117%;
+      top: 69%;
+      width: 600px;
+  
+    }
+  
+  }
+  @media (max-width: 1440px) {
+    .returndatebox{
+      position: absolute;
+      left: 147%;
+      top: 68.5%;
+  
+    }
+  }
+
+  @media (max-width: 1440px) {
+    .sendusfeedback{
+      position: absolute;
+      top: 80%;
+      left: 125%;
+      background-color: transparent;
+      border: none;
+      text-decoration: underline;
+      color: black;
+    }
+  }
+
+  
+
+  @media (max-width: 1440px) {
+    .equipmentticketbox {
+      position: absolute;
+      left: 147%;
+      top: 37.5%;
       
       
     }
   }
+  @media (max-width: 1440px) {
+    .equipmentborrowed{
+      font-size: 20px;
+      position: absolute;
+      left: 117%;
+      top: 37%;
+      width: 600px;
+  
+    }
+
+    }
+  
+
+
+
+  
+
   @media (max-width: 1024px) {
     .ticket-picture {
       background-image: url('./images/ticket-picture.jpg');
@@ -221,13 +585,13 @@
       
     }
   }
-  @media (max-width: 1024px) {
+   @media (max-width: 1024px) {
     .try-container {
       height: 80vh;
       background-color:#e65b7950;
-      width: 130%;
+      width: 110%;
       position: absolute;
-      left: 110%;
+      left: 105%;
       top: 10%;
       border-radius: 20px;
 
@@ -236,17 +600,182 @@
     }
   }
   @media (max-width: 1024px) {
-    .thanks-subtile{
-      font-size: 15px;
+    .thanks {
       position: absolute;
-      left: 10%;
-      top: 18%;
-      width: 600px;
+    left: 115%;
+    top: 12%;
+    width: 500px;
 
       
       
     }
   }
+  @media (max-width: 1024px) {
+    .thanks-subtile{
+      font-size: 20px;
+    position: absolute;
+    left: 115%;
+    top: 18%;
+    width: 400px;
+
+      
+      
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .borrowername {
+      font-size: 20px;
+    position: absolute;
+    left: 110%;
+    top: 30%;
+    width: 600px;
+      
+    }
+  }
+  @media (max-width: 1024px) {
+    .borrowernamebox{
+      position: absolute;
+      left: 150%;
+      top: 30%;
+      
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .purposeticket{
+      font-size: 20px;
+      position: absolute;
+      left: 110%;
+      top: 43%;
+      width: 600px;
+  
+    }
+  }
+  @media (max-width: 1024px) {
+    .purposeticketbox{
+      position: absolute;
+      left: 150%;
+      top: 43%;
+      
+  
+    }
+  }
+  @media (max-width: 1024px) {
+    .datetimeticket{
+      font-size: 20px;
+      position: absolute;
+      left: 110%;
+      top: 50%;
+      width: 600px;
+  
+    }
+  }
+  @media (max-width: 1024px) {
+    .dateticketbox{
+      position: absolute;
+      left: 150%;
+      top: 49.5%;
+  
+    }
+  }
+  @media (max-width: 1024px) {
+    .borrowercourse{
+      font-size: 20px;
+      position: absolute;
+      left: 110%;
+      top: 56%;
+      width: 600px;
+      
+    }
+  }
+  @media (max-width: 1024px) {
+    .borrowercoursebox{
+      position: absolute;
+      left: 150%;
+      top: 56%;
+      
+    }
+  
+  }
+  @media (max-width: 1024px) {
+    .requestdateborrow{
+      font-size: 20px;
+      position: absolute;
+      left: 110%;
+      top: 62.5%;
+      width: 600px;
+  
+    }
+  
+  }
+  @media (max-width: 1024px) {
+    .requestdatebox{
+      position: absolute;
+      left: 150%;
+      top: 62.5%;
+  
+    }
+  
+  }
+  @media (max-width: 1024px) {
+    .returndateborrow{
+      font-size: 20px;
+      position: absolute;
+      left: 110%;
+      top: 69%;
+      width: 600px;
+  
+    }
+  
+  }
+  @media (max-width: 1024px) {
+    .returndatebox{
+      position: absolute;
+      left: 150%;
+      top: 68.5%;
+  
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .sendusfeedback{
+      position: absolute;
+      top: 75%;
+      left: 125%;
+      background-color: transparent;
+      border: none;
+      text-decoration: underline;
+      color: black;
+      width: 70%;
+      font-size: 10px;
+    }
+  }
+
+  
+
+  @media (max-width: 1024px) {
+    .equipmentticketbox {
+      position: absolute;
+      left: 150%;
+      top: 37.5%;
+      
+      
+    }
+  }
+  @media (max-width: 1024px) {
+    .equipmentborrowed{
+      font-size: 20px;
+      position: absolute;
+      left: 110%;
+      top: 37%;
+      width: 600px;
+  
+    }
+
+    }
+  
+  
   @media (max-width: 768px) {
     .ticket-picture {
       background-image: url('./images/ticket-picture.jpg');

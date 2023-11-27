@@ -22,7 +22,7 @@ function Ticket() {
          <div className="ticket-picture">
 
 
-        <div className='try-container'>
+        <div className='try-container'> </div>
         <div className='thanks'>
 
             <h1>Thank you</h1>
@@ -82,7 +82,7 @@ function Ticket() {
         
 
 
-        </div>
+        
 
 
 
