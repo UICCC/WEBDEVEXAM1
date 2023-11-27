@@ -17,3 +17,52 @@
     top: 25%;
     left: 10% ;
 }
+
+.searchInput_Container {
+    position: relative;
+}
+
+.searchInput_Container input {
+    width: 50%;
+    padding: 10px;
+    outline: none;
+    position: absolute;
+    left: 45%;
+    transform: translateX(-50%);
+    /* Other styles */
+}
+.templateContainer{
+    margin: 5% 0;
+    margin-top: 15%;
+    margin-left: 10%;
+}
+.templateContainer > .searchInput_Container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+.templateContainer > .searchInput_Container input{
+    width: 50%;
+    padding: 10px;
+    outline: none;
+}
+.templateContainer .template_Container {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap onto the next line */
+    align-items: flex-start; /* Align items to the start of the flex container */
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.templateContainer .template_Container .template {
+    background-color: white;
+    margin: 15px; /* Adjust margin for space between items */
+    padding: 10px; /* Adjust padding as needed */
+    width: calc(30% - 30px); /* Set width to fit two items in a row with margins */
+    box-sizing: border-box; /* Ensure padding is included in the width */
+    /* Other styles */
+}
+.templateContainer .template_Container .template img{
+    height: 250px;
+}
