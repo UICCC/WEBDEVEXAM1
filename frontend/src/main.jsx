@@ -11,6 +11,7 @@ import Request from './pages/Request/Request.tsx';
 import Ticket from'./pages/Request/Ticket/Ticket.tsx';
 import Admin from './pages/Admin/Admin.jsx';
 import Equipments from './pages/Admin/Equipments/equipments.tsx'
+import Equipandtools from './pages/Admin/Equipments/Allequips/Equipandtools.jsx';
 
 
 const router = createBrowserRouter([
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
   {
     path: "/Equipments",
     element: <Equipments />,
+  },
+  {
+    path: "/Equipandtools",
+    element: <Equipandtools />,
   },
 
 ]);
