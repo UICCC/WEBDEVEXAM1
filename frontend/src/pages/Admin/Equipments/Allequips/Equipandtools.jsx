@@ -2,16 +2,24 @@ import './Equipandtools.css'
 import { Menubar } from 'primereact/menubar';
 import React, {useState} from "react";
 import data from './Equipandtoold.json'
+import {useNavigate} from 'react-router-dom';
 
 function Equipandtools() {
+
+    const navigate = useNavigate();
+    const handleloginClick = () => navigate('/');
+    const handleSignupClick = () => navigate('/Login');
+    const handleAdminClick = () => navigate('/Admin');
+    const handleequipmentsClick = () => navigate('/Equipments');
+  
     const items = [
         {
-            label: <div className='tools-navbar-text'>Home </div>,
+            label: <div className='tools-navbar-text'onClick={handleloginClick}>Home </div>,
             icon: 'pi pi-fw pi-file',
             
         },
         {
-          label: <div className='tools-navbar-text'>Overview </div>,
+          label: <div className='tools-navbar-text'onClick={handleAdminClick}>Overview </div>,
             icon: 'pi pi-fw pi-pencil',
            
         },
@@ -20,7 +28,7 @@ function Equipandtools() {
             
         },
         {
-          label: <div className='tools-navbar-text'>Equipments </div>,
+          label: <div className='tools-navbar-text'onClick={handleequipmentsClick}>Equipments </div>,
             icon: 'pi pi-fw pi-calendar',
             
         },

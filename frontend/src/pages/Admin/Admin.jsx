@@ -13,6 +13,7 @@ function Admin() {
   const navigate = useNavigate();
   const handleloginClick = () => navigate('/');
   const handleequipmentsClick = () => navigate('/Equipments');
+  const handlEquipandtoolsClick = () => navigate('/Equipandtools');
 
     const itemsadmin = [
         
@@ -49,7 +50,7 @@ function Admin() {
            
         },
         {
-            label: <div className='panelmenu-bar' onClick={handleequipmentsClick}>Equipments </div>,
+            label: <div className='panelmenu-bar' onClick={handlEquipandtoolsClick}>Equipments </div>,
             icon: 'pi pi-fw pi-shopping-cart',
             
         },
