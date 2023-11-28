@@ -12,7 +12,7 @@ function Admin() {
 
   const navigate = useNavigate();
   const handleloginClick = () => navigate('/');
-  const handleequipmentsClick = () => navigate('/Equipments');
+  const handleReportsClick = () => navigate('/Reports');
   const handlEquipandtoolsClick = () => navigate('/Equipandtools');
 
     const itemsadmin = [
@@ -37,8 +37,8 @@ function Admin() {
             
         },
         {
-          label: <div className='navbartexts'>Contact </div>,
-            icon: 'pi pi-fw pi-power-off'
+          label: <div className='navbartexts'>Pendings </div>,
+            icon: 'pi pi-fw pi-user-plus'
         }
     ];
 
@@ -55,10 +55,11 @@ function Admin() {
             
         },
         {
-            label: <div className='panelmenu-bar'>Reports </div>,
+            label: <div className='panelmenu-bar'onClick={handleReportsClick}>Reports </div>,
             icon: 'pi pi-fw pi-envelope',
            
         },
+        
        
     ];
 

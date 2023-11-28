@@ -12,7 +12,7 @@ import Ticket from'./pages/Request/Ticket/Ticket.tsx';
 import Admin from './pages/Admin/Admin.jsx';
 import Equipments from './pages/Admin/Equipments/equipments.tsx'
 import Equipandtools from './pages/Admin/Equipments/Allequips/Equipandtools.jsx';
-
+import Report from './pages/Admin/Reports/Reports.jsx'
 
 const router = createBrowserRouter([
   {
@@ -43,6 +43,10 @@ const router = createBrowserRouter([
   {
     path: "/Equipandtools",
     element: <Equipandtools />,
+  },
+  {
+    path: "/Reports",
+    element: <Report />,
   },
 
 ]);
