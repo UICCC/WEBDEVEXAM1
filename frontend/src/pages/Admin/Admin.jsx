@@ -64,30 +64,23 @@ function Admin() {
 
     const initialCategories = [
       {
-        time: "time",
+        time: "7:30 AM",
         id: 1,
-        name: "NameHere",
-        description: "Equipment"
+        name: "Drake Zee",
+        equipment: "Equipment",
+        course: "BSCS-2A",
+        date: "29-nov-2023",
+        duedate: "29-nov-2023",
+        status: "ongoing"
         
       },
-        {
-          time: "time",
-          id: 2,
-          name: "Namehere",
-          description: "Equipment"
-        },
-        {
-          time: "time",
-          id: 3,
-          name: "NameHere",
-          description: "Equipment"
-        },
+        
        
       ];
     
       const [categories, setCategories] = useState(initialCategories);
       const [selectedCategory, setSelectedCategory] = useState(null);
-      const [newCategory, setNewCategory] = useState({ id: '', name: '', description: '' });
+      const [newCategory, setNewCategory] = useState({ id: '', name: '', equipment: '', });
     
       const handleEdit = () => {
         if (selectedCategory) {
@@ -110,9 +103,9 @@ function Admin() {
       };
     
       const handleAdd = () => {
-        if (newCategory.name && newCategory.description) {
+        if (newCategory.name && newCategory.equipment) {
           setCategories([...categories, { ...newCategory, id: categories.length + 1 }]);
-          setNewCategory({ id: '', name: '', description: '' });
+          setNewCategory({ id: '', name: '', equipment: '' });
         }
       };
 
@@ -163,7 +156,7 @@ function Admin() {
             <Column field="time" header="Time"></Column>
             <Column field="id" header="ID"></Column>
             <Column field="name" header="Name"></Column>
-            <Column field="description" header="Description"></Column>
+            <Column field="equipment" header="Equipment"></Column>
             <Column field="course" header="Course"></Column>
             <Column field="date" header="Date"></Column>
             <Column field="duedate" header="DueDate"></Column>
@@ -191,10 +184,10 @@ function Admin() {
                 }}
               />
               <InputText
-                value={selectedCategory.description}
+                value={selectedCategory.equipment}
                 onChange={(e) => {
                   const updatedCategory = { ...selectedCategory };
-                  updatedCategory.description = e.target.value;
+                  updatedCategory.equipment = e.target.value;
                   setSelectedCategory(updatedCategory);
                   
                 }}
@@ -248,9 +241,9 @@ function Admin() {
               placeholder="Name"
             />
             <InputText
-              value={newCategory.description}
-              onChange={(e) => setNewCategory({ ...newCategory, description: e.target.value })}
-              placeholder="Description"
+              value={newCategory.equipment}
+              onChange={(e) => setNewCategory({ ...newCategory, equipment: e.target.value })}
+              placeholder="Equipment"
             />
             <InputText
               value={newCategory.course}
