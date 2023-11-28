@@ -14,7 +14,7 @@ function Admin() {
   const handleloginClick = () => navigate('/');
   const handleReportsClick = () => navigate('/Reports');
   const handlEquipandtoolsClick = () => navigate('/Equipandtools');
-
+  const handlePendingClick = () => navigate('/Pending');
     const itemsadmin = [
         
         {
@@ -37,7 +37,7 @@ function Admin() {
             
         },
         {
-          label: <div className='navbartexts'>Pendings </div>,
+          label: <div className='navbartexts'onClick={handlePendingClick}>Pendings </div>,
             icon: 'pi pi-fw pi-user-plus'
         }
     ];

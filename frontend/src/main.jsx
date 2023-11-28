@@ -13,6 +13,7 @@ import Admin from './pages/Admin/Admin.jsx';
 import Equipments from './pages/Admin/Equipments/equipments.tsx'
 import Equipandtools from './pages/Admin/Equipments/Allequips/Equipandtools.jsx';
 import Report from './pages/Admin/Reports/Reports.jsx'
+import Pending from './pages/Admin/Pending/Pending.jsx';
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
   {
     path: "/Reports",
     element: <Report />,
+  },
+  {
+    path: "/Pending",
+    element: <Pending />,
   },
 
 ]);
