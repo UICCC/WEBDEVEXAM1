@@ -1,0 +1,45 @@
+/* Reports.css */
+
+/* Styling for the table with the class name custom-table-2 */
+.custom-table-2 {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  /* Style table header for custom-table-2 */
+  .custom-table-2 th {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  /* Style table data cells for custom-table-2 */
+  .custom-table-2 td {
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+  
+  /* Style buttons for custom-table-2 */
+  .custom-table-2 button {
+    padding: 8px 16px;
+    margin-right: 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  /* Style accept button for custom-table-2 */
+  .custom-table-2 button.accept {
+    background-color: #00c853;
+    color: white;
+  }
+  
+  /* Style decline button for custom-table-2 */
+  .custom-table-2 button.decline {
+    background-color: #d50000;
+    color: white;
+  }
+  
