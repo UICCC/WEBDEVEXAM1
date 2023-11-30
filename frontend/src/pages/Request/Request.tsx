@@ -122,8 +122,8 @@ function Request() {
     const [dropdownValue, setDropdownValue] = useState(null);
 
     const dropdownValues: InputValue[] = [
-        { name: 'Room1', code: 'NY' },
-        { name: 'Room2', code: 'RM' }
+        { name: 'Room 1', code: 'NY' },
+        { name: 'Room 2', code: 'RM' }
         
     ];
     return(
