@@ -16,7 +16,29 @@ interface InputValue {
 
 function Request() {
     const navigate = useNavigate();
-    const handleSubmitClick = () => navigate('/Ticket');
+    const [course, setCourse] = useState('');
+    const [purpose, setPurpose] = useState('');
+    const [borrowerName, setBorrowerName] = useState('');
+    const [datetime12h, setDateTime12h] = useState<Date | null>(null); // Use Date type for request date
+    const currentDate = new Date();
+    const handleButtonClick = (borrowerName: string) => {
+    const returnDate = new Date(datetime12h.getTime() + 2 * 60 * 60 * 1000);
+    // Format dates as required (requestDate: 'yyyy-MM-dd HH:mm:ss')
+    const formattedRequestDate = datetime12h.toISOString();
+    const selectedEquipmentNames = multiselectValue?.map((item: InputValue) => item.name).join(', ') || '';
+    const queryParams = new URLSearchParams();
+    queryParams.append('selectedEquipment', JSON.stringify(selectedEquipmentNames)); // Convert array to string for passing
+    queryParams.append('purpose', purpose);
+    queryParams.append('selectedRoom', JSON.stringify(dropdownValue.name));
+    queryParams.append('borrowerName', borrowerName);
+    queryParams.append('requestDate', formattedRequestDate);
+    queryParams.append('returnDate', returnDate.toISOString());
+    queryParams.append('currentDate', currentDate.toISOString());
+    navigate(`/Ticket?${queryParams.toString()}`);
+  };
+  const handleSubmitClick = () => {
+    handleButtonClick('John'); // Call the logic to navigate and pass data
+  };
     const handleloginClick = () => navigate('/');
     const handleSignupClick = () => navigate('/Login');
     const handleAdminClick = () => navigate('/Admin');
@@ -96,8 +118,7 @@ function Request() {
         );
     };
   
-    const [purpose, setPurpose] = useState('');
-    const [datetime12h, setDateTime12h] = useState(null);
+    
     const [dropdownValue, setDropdownValue] = useState(null);
 
     const dropdownValues: InputValue[] = [
@@ -105,13 +126,6 @@ function Request() {
         { name: 'Room2', code: 'RM' }
         
     ];
-
-    
-
-   
-
-
-
     return(
         <>
         
@@ -176,25 +190,9 @@ function Request() {
 
         <p className='liable-sentence' > I am liable for any damage of the said A materials and equipment</p>
 
-        <div className="course-year">
-                    <h5>Year Level</h5>
-                    <div className="formgroup-inline">
-                        <div className="field">
-                            <label id="firstname1" className="p-sr-only">
-                                Firstname
-                            </label>
-                            <InputText id="firstname1" type="text" placeholder="Course" />
-                        </div>
-                        <div className="field">
-                            <label id="lastname1" className="p-sr-only">
-                                Lastname
-                            </label>
-                            <InputText id="lastname1" type="text" placeholder="Year" />
-                        </div>
-                    </div>
-                </div>
+        
 
-                <div className="submit-button">
+                <div className="submit-button">    
             <Button onClick={handleSubmitClick} id='submitcolor-button' label="Submit" />
         </div>
         </>
