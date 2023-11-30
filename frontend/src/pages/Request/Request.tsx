@@ -87,6 +87,40 @@ function Request() {
 
 
     ];
+
+    const [formData, setFormData] = useState({
+        multiselectValue: null,
+        dropdownValue: null,
+        purpose: '',
+        datetime12h: null,
+        course: '',
+        year: '',
+      });
+
+      const handleFormSubmit = async () => {
+        try {
+          const dataToWrite = {
+            equipments: formData.multiselectValue,
+            room: formData.dropdownValue,
+            purpose: formData.purpose,
+            dateAndTime: formData.datetime12h,
+            yearLevel: {
+              course: formData.course,
+              year: formData.year,
+            },
+          };
+
+          // Fetch the existing content of Ticket.json
+      const response = await fetch('/Ticket.json'); // Adjust the path if needed
+      if (!response.ok) {
+        throw new Error('Failed to fetch existing data');
+      }
+
+      const existingData = await response.json();
+
+      // Merge the existing data with new form data
+      const mergedData = { ...existingData, formData: dataToWrite };
+
     const itemTemplate = (option: InputValue) => {
         return (
             <div className="sad1">
