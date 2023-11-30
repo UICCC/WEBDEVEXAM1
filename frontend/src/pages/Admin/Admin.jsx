@@ -68,13 +68,113 @@ function Admin() {
         time: "7:30 AM",
         id: 1,
         name: "Drake Zee",
-        equipment: "Equipment",
+        equipment: "Audio Cord, Ext. Wire, HDMI Connector",
+        room: "None",
         course: "BSCS-2A",
-        date: "29-nov-2023",
+        date: "28-nov-2023",
         duedate: "29-nov-2023",
         status: "ongoing"
-        
       },
+      {
+        time: "8:45 AM",
+        id: 2,
+        name: "John Doe",
+        equipment: "HDMI Cord, LCD Microphone",
+        room: "Room 1",
+        course: "BSCS-2B",
+        date: "29-nov-2023",
+        duedate: "30-nov-2023",
+        status: "returned"
+      },
+      {
+        time: "10:00 AM",
+        id: 3,
+        name: "Alice Johnson",
+        equipment: "Mic. Cord, Mic. Stand, Pc",
+        room: "Room 2",
+        course: "BSCS-2C",
+        date: "01-dec-2023",
+        duedate: "02-dec-2023",
+        status: "ongoing"
+      },
+      {
+        time: "11:15 AM",
+        id: 4,
+        name: "Emma Watson",
+        equipment: "Type-C HDMI Connector, Portable CD/DVD player, Portable wirless amplifier",
+        room: "None",
+        course: "BSCS-2D",
+        date: "01-dec-2023",
+        duedate: "02-dec-2023",
+        status: "returned"
+      },
+      {
+        time: "12:30 PM",
+        id: 5,
+        name: "Robert Smith",
+        equipment: "PPT Presenter",
+        room: "Room 1",
+        course: "BSCS-2E",
+        date: "02-dec-2023",
+        duedate: "03-dec-2023",
+        status: "ongoing"
+      },
+      {
+        time: "1:45 PM",
+        id: 6,
+        name: "Mia Johnson",
+        equipment: "Bluetooth Speaker",
+        room: "Room 2",
+        course: "BSCS-2F",
+        date: "03-dec-2023",
+        duedate: "04-dec-2023",
+        status: "returned"
+      },
+      {
+        time: "3:00 PM",
+        id: 7,
+        name: "William Davis",
+        equipment: "HDMI Connector",
+        room: "None",
+        course: "BSCS-2G",
+        date: "04-dec-2023",
+        duedate: "05-dec-2023",
+        status: "ongoing"
+      },
+      {
+        time: "4:15 PM",
+        id: 8,
+        name: "Sophia Brown",
+        equipment: "ICD, CD",
+        room: "Room 1",
+        course: "BSCS-2H",
+        date: "05-dec-2023",
+        duedate: "06-dec-2023",
+        status: "returned"
+      },
+      {
+        time: "5:30 PM",
+        id: 9,
+        name: "Oliver Johnson",
+        equipment: "LCD, HDMI Cord, Microphone",
+        room: "Room 2",
+        course: "BSCS-2I",
+        date: "06-dec-2023",
+        duedate: "07-dec-2023",
+        status: "ongoing"
+      },
+      {
+        time: "6:45 PM",
+        id: 10,
+        name: "Ava Wilson",
+        equipment: "Karaoke, Ext. Wire, Audio Cord",
+        room: "None",
+        course: "BSCS-2J",
+        date: "07-dec-2023",
+        duedate: "08-dec-2023",
+        status: "returned"
+      },
+
         
        
       ];
@@ -158,9 +258,10 @@ function Admin() {
             <Column field="id" header="ID"></Column>
             <Column field="name" header="Name"></Column>
             <Column field="equipment" header="Equipment"></Column>
+            <Column field="room" header="Room"></Column>
             <Column field="course" header="Course"></Column>
-            <Column field="date" header="Date"></Column>
-            <Column field="duedate" header="DueDate"></Column>
+            <Column field="date" header="Request Date"></Column>
+            <Column field="duedate" header="Due Date"></Column>
             <Column field="status" header="Status"></Column>
           </DataTable>
         </div>

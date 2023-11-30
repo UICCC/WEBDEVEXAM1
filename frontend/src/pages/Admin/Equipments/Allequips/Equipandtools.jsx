@@ -72,7 +72,9 @@ function Equipandtools() {
                   <div className="template" key={val.id}>
                       <img src={val.image} alt="" />
                       <h3>{val.title}</h3>
-                      
+                      <h4>ID: {val.id}</h4>
+                      <h4>Borrow Status: Available</h4>
+                      <h5><em>Description</em></h5>
                   </div> 
                 )
               })

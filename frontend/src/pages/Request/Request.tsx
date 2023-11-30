@@ -26,10 +26,11 @@ function Request() {
     // Format dates as required (requestDate: 'yyyy-MM-dd HH:mm:ss')
     const formattedRequestDate = datetime12h.toISOString();
     const selectedEquipmentNames = multiselectValue?.map((item: InputValue) => item.name).join(', ') || '';
+    const selectedRoomNames = dropdownValue?.map((item: InputValue) => item.name).join(', ') || '';
     const queryParams = new URLSearchParams();
     queryParams.append('selectedEquipment', JSON.stringify(selectedEquipmentNames)); // Convert array to string for passing
     queryParams.append('purpose', purpose);
-    queryParams.append('selectedRoom', JSON.stringify(dropdownValue.name));
+    queryParams.append('selectedRoom', JSON.stringify(selectedRoomNames));
     queryParams.append('borrowerName', borrowerName);
     queryParams.append('requestDate', formattedRequestDate);
     queryParams.append('returnDate', returnDate.toISOString());
@@ -123,7 +124,8 @@ function Request() {
 
     const dropdownValues: InputValue[] = [
         { name: 'Room 1', code: 'NY' },
-        { name: 'Room 2', code: 'RM' }
+        { name: 'Room 2', code: 'RM' },
+        { name: 'None', code: 'NO'}
         
     ];
     return(
