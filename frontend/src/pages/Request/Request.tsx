@@ -108,7 +108,57 @@ function Request() {
 
     
 
-   
+    const [formData, setFormData] = useState({
+        multiselectValue: null,
+        dropdownValue: null,
+        purpose: '',
+        datetime12h: null,
+        course: '',
+        year: '',
+      });
+    
+      const handleFormSubmit = async () => {
+        try {
+          const dataToWrite = {
+            equipments: formData.multiselectValue,
+            room: formData.dropdownValue,
+            purpose: formData.purpose,
+            dateAndTime: formData.datetime12h,
+            yearLevel: {
+              course: formData.course,
+              year: formData.year,
+            },
+          };
+    
+          // Fetch the existing content of Ticket.json
+          const response = await fetch('/Ticket.json'); // Adjust the path if needed
+          if (!response.ok) {
+            throw new Error('Failed to fetch existing data');
+          }
+    
+          const existingData = await response.json();
+    
+          // Merge the existing data with new form data
+          const mergedData = { ...existingData, formData: dataToWrite };
+    
+          // Convert mergedData object to JSON string
+          const jsonData = JSON.stringify(mergedData, null, 2);
+    
+          // Write the updated JSON back to Ticket.json
+          await fetch('/Ticket.json', {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: jsonData,
+          });
+    
+          alert('Form data has been written to Ticket.json successfully!');
+        } catch (error) {
+          console.error('Error:', error);
+          alert('Failed to write data to Ticket.json');
+        }
+      };
 
 
 
