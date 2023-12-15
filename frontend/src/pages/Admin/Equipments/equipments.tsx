@@ -112,15 +112,13 @@ function Equipments() {
                         options={multiselectValues}
                         itemTemplate={itemTemplate}
                         optionLabel="name"
-                        placeholder="Select Countries"
+                        placeholder="Select Equipments"
                         filter
                         className="multiselect-custom"
                         display="chip"
                     />
 
-            <div className="ratingstar">
-            <Rating value={valueStar} onChange={(e) => setStar(e.value)} />
-            </div>
+            
             <div className="feeback-purpose-box">
             <InputTextarea autoResize value={valuefeedback} onChange={(e) => setfeedback(e.target.value)} rows={5} cols={30} placeholder="Enter your additional feedback here..." />
         </div>
