@@ -191,7 +191,7 @@ function Request() {
             <hr className='newline' />
 
         <p className='liable-sentence' > I am liable for any damage of the said A materials and equipment</p>
-
+            <input className='checkbox' type="checkbox"></input>
         
 
                 <div className="submit-button">    

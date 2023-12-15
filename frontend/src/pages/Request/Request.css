@@ -223,6 +223,103 @@ td {
   background-color: rgb(255, 194, 207);
 }
 
+.checkbox{
+  position: absolute; 
+  z-index: 1;
+  top: 120.3%; /* Position it vertically at 50% from the top */
+  left:15%; /* Position it horizontally at 50% from the left */
+  transform: translate(-50%, -50%);
+  
+  
+  
+}
+
+@media (max-width: 1889px) {
+  .checkbox{
+    position: absolute; 
+  z-index: 1;
+  top: 120.2%; /* Position it vertically at 50% from the top */
+  left:13%; /* Position it horizontally at 50% from the left */
+  transform: translate(-50%, -50%);
+    
+  }
+}
+@media (max-width: 1669px) {
+  .checkbox{
+    position: absolute; 
+  z-index: 1;
+  top: 120.2%; /* Position it vertically at 50% from the top */
+  left:13%; /* Position it horizontally at 50% from the left */
+  transform: translate(-50%, -50%);
+    
+  }
+}
+@media (max-width: 1658px) {
+  .checkbox{
+    position: absolute; 
+  z-index: 1;
+  top: 120.2%; /* Position it vertically at 50% from the top */
+  left:12%; /* Position it horizontally at 50% from the left */
+  transform: translate(-50%, -50%);
+    
+  }
+}
+@media (max-width: 1568px) {
+  .checkbox{
+    position: absolute; 
+  z-index: 1;
+  top: 120.2%; /* Position it vertically at 50% from the top */
+  left:11%; /* Position it horizontally at 50% from the left */
+  transform: translate(-50%, -50%);
+    
+  }
+}
+@media (max-width: 1491px) {
+  .checkbox{
+    position: absolute; 
+  z-index: 1;
+  top: 120.2%; /* Position it vertically at 50% from the top */
+  left:9%; /* Position it horizontally at 50% from the left */
+  transform: translate(-50%, -50%);
+    
+  }
+}
+@media (max-width: 1343px) {
+  .checkbox{
+    position: absolute; 
+  z-index: 1;
+  top: 120.2%; /* Position it vertically at 50% from the top */
+  left:7%; /* Position it horizontally at 50% from the left */
+  transform: translate(-50%, -50%);
+    
+  }
+}
+@media (max-width: 1232px) {
+  .checkbox{
+    position: absolute; 
+  z-index: 1;
+  top: 120.2%; /* Position it vertically at 50% from the top */
+  left:4%; /* Position it horizontally at 50% from the left */
+  transform: translate(-50%, -50%);
+    
+  }
+}
+
+@media (max-width: 1721px) {
+  .dateandTime{
+  
+    position: absolute; 
+    z-index: 1;
+    top: 74%; /* Position it vertically at 50% from the top */
+    left:80%; /* Position it horizontally at 50% from the left */
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-weight: 100;
+  
+  }
+}
+
+
  
 @media (max-width: 1440px) {
   .first-dropdown{
@@ -298,6 +395,19 @@ td {
     
   }
 }
+@media (max-width: 1080px) {
+  .purpose-box{
+    position: absolute; 
+  z-index: 1;
+  top: 78%; /* Position it vertically at 50% from the top */
+  left:55%; /* Position it horizontally at 50% from the left */
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  width: 150px;
+  font-weight: 100px;
+    
+  }
+}
 @media (max-width: 1024px) {
   .purpose-box{
     position: absolute; 
@@ -306,7 +416,7 @@ td {
   left:55%; /* Position it horizontally at 50% from the left */
   transform: translate(-50%, -50%);
   font-size: 20px;
-  font-weight: 100;
+  font-weight: 100px;
     
   }
 }
