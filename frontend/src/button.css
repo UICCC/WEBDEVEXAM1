@@ -79,3 +79,29 @@ background-color: #e65b7a;;
     
   }
 }
+
+@media screen and (max-width: 1837px), 
+       screen and (max-height: 700px) {
+        #Signup-button{
+          position: absolute; 
+          z-index: 1;
+          
+          top: 72%; /* Position it vertically at 50% from the top */
+          left: 69%; /* Position it horizontally at 50% from the left */
+          transform: translate(-50%, -50%);
+          width: 200px;
+          background-color: #e65b7a;;
+}
+       }
+       @media screen and (max-width: 1447px), 
+       screen and (max-height: 700px) {
+        #login-button{
+          position: absolute; 
+        z-index: 1;
+        top: 72%; /* Position it vertically at 50% from the top */
+        left: 52%; /* Position it horizontally at 50% from the left */
+        transform: translate(-50%, -50%);
+        width: 200px;
+        background-color: #e65b7a;;
+}
+       }

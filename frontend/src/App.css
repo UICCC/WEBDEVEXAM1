@@ -162,6 +162,19 @@
     
   }
 }
+@media screen and (max-width: 1627px), 
+       screen and (max-height: 910px) {
+        
+        .password-box-main{
+          position: absolute; 
+          z-index: 1;
+          top: 57%; /* Position it vertically at 50% from the top */
+          left: 54.5%; /* Position it horizontally at 50% from the left */
+          transform: translate(-50%, -50%);
+        }
+}
+
+
 
 
 
