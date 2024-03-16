@@ -192,6 +192,14 @@
     }
   }
 
+
+  @media (max-width: 1457px) {
+    .main-title{
+      margin-left: 160px;
+      
+    }
+  }
+
   @media (max-width: 1202px) {
     .navbar{
     
@@ -203,6 +211,7 @@
     }
   }
 
+  
   
 
 
@@ -245,6 +254,8 @@
       
     }
   }
+
+  
   @media (max-width: 1440px) {
     .app-container1{
       background-image: url('./images/edited2.jpg');

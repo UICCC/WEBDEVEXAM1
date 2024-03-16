@@ -14,7 +14,7 @@
 
 .outerflex{
   display: flex; /* Use flexbox */
-  justify-content: center; /* Center items horizontally */
+  justify-content: center; /* Center items horizontally */  
   align-items: center; /* Center items vertically */
 }
 .Id-box-main{
@@ -126,6 +126,34 @@
     
   }
 }
+
+@media (max-width: 1627px) {
+  .password-box-main{
+   margin-top: -120px;
+   margin-left: 86px;
+   
+   
+ }
+}
+
+@media (max-width: 1549px) {
+  .password-box-main{
+   margin-top: -120px;
+   margin-left: 156px;
+   
+   
+ }
+}
+@media (max-width: 1549px) {
+  .Id-box-main{
+    
+    margin-left: 169px;
+    
+    
+  }
+}
+
+
 
 @media (max-width: 1440px) {
   .Id-box-main{
