@@ -216,6 +216,35 @@
        }
 
 
+ 
+       
+       @media (max-width: 1462px) {
+        .app-container{
+          background-image: url('./assets/images/edited.jpg');
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+        background-position: left center;
+        width: 50%;
+        height: 100vh;
+        position: relative; 
+          
+        }
+      }       
+
+
+      @media screen and (max-height: 678px) {
+        .password-box-main{
+          margin-left: 87px;
+}
+       }
+
+       @media screen and (max-height: 949px) {
+        .password-box-main{
+          margin-top: 0.5px;
+}
+       }
+
+
 
 
 

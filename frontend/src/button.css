@@ -53,18 +53,98 @@ background-color: #e65b7a;;
 }
 @media (max-width: 1440px) {
   #login-button {
-    margin-left: 30px;
+    margin-left: 80px;
     width: 10%;
     
   }
 }
 @media (max-width: 1440px) {
    #Signup-button{
-    margin-left: 25px;
+    margin-left: 40px;
     width: 10%;
     
   }
 }
+
+@media (max-width: 1418px) {
+  #login-button {
+    margin-left: 80px;
+    width: 10%;
+    
+  }
+}
+@media (max-width: 1418px) {
+   #Signup-button{
+    margin-left: 50px;
+    width: 10%;
+    
+  }
+}
+
+@media (max-width: 1363px) {
+  #login-button {
+    margin-left: 80px;
+    width: 10%;
+    
+  }
+}
+@media (max-width: 1362px) {
+   #Signup-button{
+    margin-left: 70px;
+    width: 10%;
+    
+  }
+}
+
+@media (max-width: 1243px) {
+  #login-button {
+    margin-left: 85px;
+    width: 5%;
+    
+  }
+}
+@media (max-width: 1243px) {
+   #Signup-button{
+    margin-left: 90px;
+    width: 5%;
+    
+  }
+}
+
+@media (max-width: 1166px) {
+  #login-button {
+    margin-left: 100px;
+    width: 5%;
+    
+  }
+}
+@media (max-width: 1166px) {
+   #Signup-button{
+    margin-left: 120px;
+    width: 5%;
+    
+  }
+}
+@media (max-width: 1062px) {
+  #login-button {
+    margin-left: 110px;
+    width: 5%;
+    
+  }
+}
+@media (max-width: 1062px) {
+   #Signup-button{
+    margin-left: 140px;
+    width: 5%;
+    
+  }
+}
+
+
+
+
+
+
 @media (max-width: 1024px) {
   #login-button {
     margin-left: 3px;
@@ -105,3 +185,6 @@ background-color: #e65b7a;;
         background-color: #e65b7a;;
 }
        }
+
+    
+       
