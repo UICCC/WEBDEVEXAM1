@@ -12,16 +12,19 @@
   position: relative; /* Add this to establish a positioning context */
 }
 
-
+.outerflex{
+  display: flex; /* Use flexbox */
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+}
 .Id-box-main{
   position: absolute; 
   z-index: 1;
-  top: 33%; /* Position it vertically at 50% from the top */
-  left: 55%; /* Position it horizontally at 50% from the left */
-  transform: translate(-50%, -50%); /* Center the component both vertically and horizontally */
-  
+  top: 33%;
+  left: 55%; 
+  transform: translate(-50%, -50%); 
   margin-top: 100px;   
-
+  
 }
 .inside-box{
   width: 200%;
@@ -39,7 +42,7 @@
 }
 
 .inside-password{
-  width: 200;
+  width: 200%;
 
 
   top: 51%; /* Position it vertically at 50% from the top */
@@ -77,7 +80,7 @@
 }
 
 .inside-password{
-  width: 200;
+  width: 200px;
 
 }
 
@@ -92,6 +95,7 @@
   
   margin-top: -27px;
   margin-left: 10px;
+  
 }
 
 
@@ -174,6 +178,14 @@
         }
 }
 
+@media screen and (max-width: 1627px), 
+       screen and (max-height: 748px) {
+        .Id-box-main{
+          top: 29%;
+          left: 54.2%;
+          
+}
+       }
 
 
 

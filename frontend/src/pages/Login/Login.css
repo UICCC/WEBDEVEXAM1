@@ -150,8 +150,68 @@
       
     }
   }
- 
+  @media (max-width: 1760px) {
+    .navbar-text, .p-menuitem-icon{
+      font-size: 13px;
+       
+      
+      
+    }
+  }
+  
+  @media (max-width: 1637px) {
+    .navbar{
+    
+      margin-left: 50px;
+      width: 530px;
+       
+      
+      
+    }
+  }
 
+  @media (max-width: 1652px) {
+    .navbar{
+    
+      margin-left: 50px;
+      width: 530px;
+       
+      
+      
+    }
+  }
+  
+  @media (max-width: 1537px) {
+    .navbar{
+    
+      margin-left: 100px;
+      width: 530px;
+       
+      
+      
+    }
+  }
+
+  @media (max-width: 1202px) {
+    .navbar{
+    
+      margin-left: 40px;
+      width: 530px;
+       
+      
+      
+    }
+  }
+
+  
+
+
+
+
+
+  
+
+  
   
   @media (max-width: 1440px) {
     .main-title{

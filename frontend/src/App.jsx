@@ -65,7 +65,7 @@ const [valuePass, setPass] = useState('');
 <div className="new-component">
   <Menubar className='navbar' model={items} />
 </div>
-      
+      <div className='outerflex'>
       <p className='main-title'> Login to your account</p>
     
       
@@ -80,6 +80,7 @@ const [valuePass, setPass] = useState('');
                     <Password className="inside-password" value={valuePass} onChange={(e) => setPass(e.target.value)} />
                     <label id="password-main">Password</label>
                 </span>
+            </div>
             </div>
 
     
