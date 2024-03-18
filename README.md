@@ -18,7 +18,9 @@ BACK END SET-UP
 --uvicorn main:app --reload--
 
 TESTER SET-UP
+
 ( REQUIRED - NODE JS, GIT, CYPRESS )
+
 --CD FRONTEND/BACKEND--
 --NPM INSTALL--
 --NPM RUN DEV--
