@@ -16,3 +16,11 @@ BACK END SET-UP
 --conda activate equipsenseEnv--
 --pip install fastapi uvicorn mysql-connector-python bcrypt python-multipart--
 --uvicorn main:app --reload--
+
+TESTER SET-UP
+( REQUIRED - NODE JS, GIT, CYPRESS )
+--CD FRONTEND/BACKEND--
+--NPM INSTALL--
+--NPM RUN DEV--
+--NPM INSTALL CYPRESS --SAVE-DEV--
+--NPX CYPRESS OPEN--
