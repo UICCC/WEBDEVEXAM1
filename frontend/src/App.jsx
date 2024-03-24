@@ -31,6 +31,7 @@ function App() {
         // Check if the returned borrower's password matches the input password
         if (borrower && borrower.BorrowerPass === valuePass) {
           // Login successful, navigate to the appropriate page
+          alert('Login Successful!');
           navigate('/');
         } else {
           // Login failed, display an error message
