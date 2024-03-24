@@ -18,13 +18,7 @@ import {useNavigate} from 'react-router-dom';
 function Login() {
 
     const navigate = useNavigate();
-    const handleloginClick = () => {
-      if (!value || !valuePass1) {
-        alert("Please fill in both ID Number and Password fields.");
-      } else {
-        navigate('/');
-      }
-    };
+    const handleloginClick = () => navigate('/');
     const handleSignupClick = () => navigate('/Login');
     const handleAdminClick = () => navigate('/Admin');
     const handleequipmentsClick = () => navigate('/Equipments');

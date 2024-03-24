@@ -19,7 +19,13 @@ import { Password } from 'primereact/password';
 function App() {
 
   const navigate = useNavigate();
-  const handleloginClick = () => navigate('/');
+  const handleloginClick = () => {
+    if (!value || !valuePass) {
+      alert("Please fill in both ID Number and Password fields.");
+    } else {
+      navigate('/');
+    }
+  };
   const handleSignupClick = () => navigate('/Login');
   const handleAdminClick = () => navigate('/Admin');
   const handleequipmentsClick = () => navigate('/Equipments');
