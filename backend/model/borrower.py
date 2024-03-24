@@ -3,6 +3,7 @@ from .db import get_db
 from pydantic import BaseModel
 from typing import Optional
 import bcrypt
+import logging
 
 # Create an instance of APIRouter
 BorrowersRouter = APIRouter(tags=["Borrowers"])
@@ -16,6 +17,7 @@ def hash_password(password: str):
 # Define a Borrower model
 class Borrower(BaseModel):
     borrower_id: int
+    borrower_pass: str
     borrower_name: str
     borrower_email: str
     subject: Optional[str] = None
@@ -24,22 +26,31 @@ class Borrower(BaseModel):
 # Define CRUD operations for Borrowers
 @BorrowersRouter.get("/borrowers/", response_model=list)
 async def read_borrowers(db = Depends(get_db)):
-    cursor, db_connection = db
-    cursor.execute("SELECT * FROM borrower")
-    borrowers = cursor.fetchall()
-    db_connection.close()  # Close the connection
+    query = "SELECT * FROM borrower"
+    db[0].execute(query)
+    borrowers = db[0].fetchall()
     return borrowers
 
-@BorrowersRouter.get("/borrowers/{borrower_id}", response_model=Borrower)
-async def read_borrower(borrower_id: int, db = Depends(get_db)):
-    cursor, db_connection = db
-    cursor.execute("SELECT * FROM borrower WHERE borrower_id = %s", (borrower_id,))
-    borrower = cursor.fetchone()
-    db_connection.close()  # Close the connection
-    if borrower is None:
-        raise HTTPException(status_code=404, detail="Borrower not found")
-    return borrower
 
+@BorrowersRouter.get("/borrowers/{borrowerID}", response_model=dict)
+async def read_borrower(borrowerID: int, db=Depends(get_db)):
+
+        query = "SELECT borrowerID, BorrowerPass, borrowerName, borrowerEmail, subject, course FROM borrower WHERE borrowerID = %s"
+        db[0].execute(query, (borrowerID,))
+        borrower = db[0].fetchone()
+        
+        if borrower:
+            return {
+                "borrowerID": borrower['borrowerID'],
+                "BorrowerPass": borrower['BorrowerPass'],
+                "borrowerName": borrower['borrowerName'],
+                "borrowerEmail": borrower['borrowerEmail'],
+                "subject": borrower['subject'],
+                "course": borrower['course'],
+            }
+        else:
+            raise HTTPException(status_code=404, detail="User not found")
+    
 @BorrowersRouter.post("/borrowers/", response_model=Borrower)
 async def create_borrower(email: str = Form(...), borrower_name: str = Form(...), borrower_email: str = Form(...), subject: str = Form(None), course: str = Form(None), db = Depends(get_db)):
     cursor, db_connection = db
