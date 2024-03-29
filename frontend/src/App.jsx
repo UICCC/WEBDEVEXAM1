@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import React from 'react'; 
+import axios from 'axios';
 import './App.css'
 import './button.css'
 import { Menubar } from 'primereact/menubar';
@@ -19,7 +20,35 @@ import { Password } from 'primereact/password';
 function App() {
 
   const navigate = useNavigate();
-  const handleloginClick = () => navigate('/');
+  const handleloginClick = async () => {
+    if (!value || !valuePass) {
+      alert("Please fill in both ID Number and Password fields.");
+    } else {
+      try {
+        const response = await axios.get(`http://localhost:8000/api/borrowers/${value}`);
+        const borrower = response.data;
+  
+        // Check if the returned borrower's password matches the input password
+        if (borrower && borrower.BorrowerPass === valuePass) {
+          // Login successful, navigate to the appropriate page
+          alert('Login Successful!');
+          navigate('/');
+        } else {
+          // Login failed, display an error message
+          alert('Invalid ID Number or Password.');
+        }
+      } catch (error) {
+        // Handle error, such as network error or server error
+        if (error.response && error.response.status === 404) {
+          // Borrower with provided ID doesn't exist
+          alert('Borrower with provided ID does not exist.');
+        } else {
+          console.error('An error occurred:', error);
+          alert('An error occurred. Please try again later.');
+        }
+      }
+    }
+  };
   const handleSignupClick = () => navigate('/Login');
   const handleAdminClick = () => navigate('/Admin');
   const handleequipmentsClick = () => navigate('/Equipments');

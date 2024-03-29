@@ -18,11 +18,10 @@ import {useNavigate} from 'react-router-dom';
 function Login() {
 
     const navigate = useNavigate();
-  const handleloginClick = () => navigate('/');
-  
-  const handleSignupClick = () => navigate('/Login');
-  const handleAdminClick = () => navigate('/Admin');
-  const handleequipmentsClick = () => navigate('/Equipments');
+    const handleloginClick = () => navigate('/');
+    const handleSignupClick = () => navigate('/Login');
+    const handleAdminClick = () => navigate('/Admin');
+    const handleequipmentsClick = () => navigate('/Equipments');
 
     const items = [
         {
