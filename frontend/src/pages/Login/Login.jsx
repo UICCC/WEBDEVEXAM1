@@ -87,6 +87,18 @@ function Login() {
                     <label id="username">Email Address</label>
                 </span>
             </div>
+            <div className="Subject">
+                <span className="p-float-label">
+                    <InputText className="inside-Subject" value={valueEmail} onChange={(e) => setEmail(e.target.value)} />
+                    <label id="username">Email Address</label>
+                </span>
+            </div>
+            <div className="Courseofstudent">
+                <span className="p-float-label">
+                    <InputText className="inside-Courseofstudent" value={valueEmail} onChange={(e) => setEmail(e.target.value)} />
+                    <label id="username">Email Address</label>
+                </span>
+            </div>
     
             <div className="password-box">
                 <span className="p-float-label">
