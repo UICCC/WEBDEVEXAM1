@@ -77,11 +77,11 @@ function Teacher() {
             <div className="name-box">
                 <span className="p-float-label">
                     <InputText className="inside-name" value={valueName} onChange={(e) => setName(e.target.value)} />
-                    <label id="username">Student Name</label>
+                    <label id="username">Teacher Name</label>
                 </span>
             </div>
     
-            <div className="email-box">
+            <div className="email-box-teacher">
                 <span className="p-float-label">
                     <InputText className="inside-email" value={valueEmail} onChange={(e) => setEmail(e.target.value)} />
                     <label id="username">Email Address</label>
