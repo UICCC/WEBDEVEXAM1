@@ -4,6 +4,7 @@ import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import { Card } from 'primereact/card';
+import axios from 'axios';
 import { InputText } from "primereact/inputtext";
 import { Password } from 'primereact/password';
 import { Button } from 'primereact/button';
@@ -15,11 +16,42 @@ import {useNavigate} from 'react-router-dom';
 
 
 
+
 function Login() {
 
     const navigate = useNavigate();
     const handleloginClick = () => navigate('/');
-    const handleSignupClick = () => navigate('/Login');
+    const handleSignupClick = async () => {
+            try {
+
+                    const response = await axios.post('http://localhost:8000/api/borrowers/', {
+                        borrowerID: value,
+                        BorrowerPass: valuePass1,
+                        borrowerName: valueName,
+                        borrowerEmail: valueEmail,
+                        subject: null, // Set to null if not provided
+                        course: null,
+                    });
+    
+                    if (response.status === 200) {
+                        alert('Signup Successful!');
+                        navigate('/');
+                    
+                }
+            } catch (error) {
+                console.error('An error occurred:', error);
+            alert('ID or Name is already in Use.');
+        
+    }
+};
+    
+    
+    
+
+    
+    
+    
+
     const handleAdminClick = () => navigate('/Admin');
     const handleequipmentsClick = () => navigate('/Equipments');
 
@@ -53,6 +85,7 @@ function Login() {
     const [valueName, setName] = useState('');
     const [valueEmail, setEmail] = useState('');
     const [valuePass1, setPass1] = useState('');
+    const [valueCourse, setCourse] = useState('');
     
 
   
@@ -89,7 +122,7 @@ function Login() {
             </div>
             <div className="Subject">
                 <span className="p-float-label">
-                    <InputText className="inside-Subject" value={valueEmail} onChange={(e) => setEmail(e.target.value)} />
+                    <InputText className="inside-Subject" value={valueCourse} onChange={(e) => setCourse(e.target.value)} />
                     <label id="username">Course</label>
                 </span>
             </div>
@@ -102,7 +135,7 @@ function Login() {
                 </span>
             </div>
             <Button onClick={handleloginClick} id='login-button' label="Login" severity="help" rounded />
-            <Button id='Signup-button' label="Signup" severity="help" rounded />
+            <Button onClick={handleSignupClick} id='Signup-button' label="Signup" severity="help" rounded />
             
             
     

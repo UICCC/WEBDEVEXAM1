@@ -5,10 +5,17 @@ from typing import Optional
 import bcrypt
 import logging
 
-# Create an instance of APIRouter
+
 BorrowersRouter = APIRouter(tags=["Borrowers"])
 
-# Password hashing function
+class BorrowerCreate(BaseModel):
+    borrowerID: int
+    BorrowerPass: str
+    borrowerName: str
+    borrowerEmail: str
+    subject: Optional[str] = None
+    course: Optional[str] = None
+
 def hash_password(password: str):
     salt = bcrypt.gensalt()
     hashed_password = bcrypt.hashpw(password.encode('utf-8'), salt)
@@ -16,7 +23,7 @@ def hash_password(password: str):
 
 
 
-# Define CRUD operations for Borrowers
+
 @BorrowersRouter.get("/borrowers/", response_model=list)
 async def read_borrowers(db = Depends(get_db)):
     query = "SELECT * FROM borrower"
@@ -43,15 +50,18 @@ async def read_borrower(borrowerID: int, db=Depends(get_db)):
             }
         else:
             raise HTTPException(status_code=404, detail="User not found")
-    
+
 @BorrowersRouter.post("/borrowers/")
-async def create_borrower(borrowerID: int = Form(...), BorrowerPass: str = Form(...), borrowerName: str = Form(...), borrowerEmail: str = Form(...), subject: str = Form(None), course: str = Form(None), db = Depends(get_db)):
+async def create_borrower(borrower: BorrowerCreate, db = Depends(get_db)):
     cursor, db_connection = db
-    cursor.execute("INSERT INTO borrower (borrowerID, BorrowerPass, borrowerName, borrowerEmail, subject, course) VALUES (%s, %s, %s, %s, %s, %s)", (borrowerID, BorrowerPass, borrowerName, borrowerEmail, subject, course))
+    cursor.execute(
+        "INSERT INTO borrower (borrowerID, BorrowerPass, borrowerName, borrowerEmail, subject, course) VALUES (%s, %s, %s, %s, %s, %s)",
+        (borrower.borrowerID, borrower.BorrowerPass, borrower.borrowerName, borrower.borrowerEmail, borrower.subject, borrower.course)
+    )
     db_connection.commit()
     new_borrower_id = cursor.lastrowid
     db_connection.close()
-    return {"borrowerID": borrowerID, "BorrowerPass": BorrowerPass, "borrowerName": borrowerName, "borrowerEmail": borrowerEmail, "subject": subject, "course": course}
+    return borrower.dict()  # Return the inserted borrower data
 
 
 @BorrowersRouter.put("/borrowers/{borrowerID}")
@@ -59,7 +69,7 @@ async def update_borrower(borrowerID: int, BorrowerPass: str = Form(...), borrow
     cursor, db_connection = db
     cursor.execute("UPDATE borrower SET BorrowerPass = %s, borrowerName = %s, borrowerEmail = %s, subject = %s, course = %s WHERE borrowerID = %s", (BorrowerPass, borrowerName, borrowerEmail, subject, course, borrowerID))
     db_connection.commit()
-    db_connection.close()  # Close the connection
+    db_connection.close()
     return {"borrowerID": borrowerID, "BorrowerPass": BorrowerPass, "borrowerName": borrowerName, "borrowerEmail": borrowerEmail, "subject": subject, "course": course}
 
 
@@ -68,5 +78,5 @@ async def delete_borrower(borrowerID: int, db = Depends(get_db)):
     cursor, db_connection = db
     cursor.execute("DELETE FROM borrower WHERE borrowerID = %s", (borrowerID,))
     db_connection.commit()
-    db_connection.close()  # Close the connection
+    db_connection.close()
     return {"message": "Borrower deleted successfully"}
