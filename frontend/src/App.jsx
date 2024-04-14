@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import React from 'react'; 
-import axios from 'axios';
+
 import './App.css'
 import './button.css'
 import { Menubar } from 'primereact/menubar';

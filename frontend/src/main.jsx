@@ -14,6 +14,7 @@ import Equipments from './pages/Admin/Equipments/equipments.tsx'
 import Equipandtools from './pages/Admin/Equipments/Allequips/Equipandtools.jsx';
 import Report from './pages/Admin/Reports/Reports.jsx'
 import Pending from './pages/Admin/Pending/Pending.jsx';
+import Teacher from './pages/Login/Teacher/Teacher.jsx';
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,11 @@ const router = createBrowserRouter([
     path: "/Pending",
     element: <Pending />,
   },
+  {
+    path: "/Teacher",
+    element: <Teacher />,
+  },
+  
 
 ]);
 

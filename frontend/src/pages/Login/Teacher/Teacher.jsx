@@ -1,4 +1,4 @@
-import './Login.css';
+import './Teacher.css';
 import { Menubar } from 'primereact/menubar';
 import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
@@ -15,7 +15,7 @@ import {useNavigate} from 'react-router-dom';
 
 
 
-function Login() {
+function Teacher() {
 
     const navigate = useNavigate();
     const handleloginClick = () => navigate('/');
@@ -77,23 +77,16 @@ function Login() {
             <div className="name-box">
                 <span className="p-float-label">
                     <InputText className="inside-name" value={valueName} onChange={(e) => setName(e.target.value)} />
-                    <label id="username">Student Name</label>
+                    <label id="username">Teacher Name</label>
                 </span>
             </div>
     
-            <div className="email-box">
+            <div className="email-box-teacher">
                 <span className="p-float-label">
                     <InputText className="inside-email" value={valueEmail} onChange={(e) => setEmail(e.target.value)} />
                     <label id="username">Email Address</label>
                 </span>
             </div>
-            <div className="Subject">
-                <span className="p-float-label">
-                    <InputText className="inside-Subject" value={valueEmail} onChange={(e) => setEmail(e.target.value)} />
-                    <label id="username">Course</label>
-                </span>
-            </div>
-           
     
             <div className="password-box">
                 <span className="p-float-label">
@@ -113,4 +106,4 @@ function Login() {
         </>
     )
 }
-export default Login
+export default Teacher
