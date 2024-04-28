@@ -2,58 +2,84 @@ from fastapi import Depends, HTTPException, APIRouter, Form
 from .db import get_db
 from pydantic import BaseModel
 import datetime
+from typing import Optional
+import bcrypt
 
 # Create an instance of APIRouter
 TicketRouter = APIRouter(tags=["Tickets"])
 
 # Define a Ticket model
-class Ticket(BaseModel):
-    ticket_id: int
-    borrower_id: int
-    equipmentset_id: int
-    room_id: int
-    request_date: datetime.date
-    request_status: int
-    return_date: datetime.date
-    return_status: int
-    feedback_id: int
-    personnel_id: int
-    report_id: int
+class TicketCreate(BaseModel):
+    ticketID: int
+    borrowerID: int
+    equipmentsetID: int
+    roomID: int
+    requestDate: datetime.date
+    requestStatus: int
+    returnDate: datetime.date
+    returnStatus: int
+    feedbackID: Optional[int] = None
+    personnelID: Optional[int] = None
+    reportID: int
+
+def hash_password(password: str):
+    salt = bcrypt.gensalt()
+    hashed_password = bcrypt.hashpw(password.encode('utf-8'), salt)
+    return hashed_password.decode('utf-8')
 
 # Define CRUD operations for Tickets
 @TicketRouter.get("/tickets/", response_model=list)
 async def read_tickets(db = Depends(get_db)):
-    cursor, _ = db
-    cursor.execute("SELECT * FROM tickets")
-    return [Ticket(**ticket) for ticket in cursor.fetchall()]
+    query = "SELECT * FROM ticket"
+    db[0].execute(query)
+    ticket = db[0].fetchall()
+    return ticket
 
-@TicketRouter.get("/tickets/{ticket_id}", response_model=Ticket)
-async def read_ticket(ticket_id: int, db = Depends(get_db)):
-    cursor, _ = db
-    cursor.execute("SELECT * FROM tickets WHERE ticket_id = %s", (ticket_id,))
-    ticket = cursor.fetchone()
-    if not ticket:
-        raise HTTPException(status_code=404, detail="Ticket not found")
-    return Ticket(**ticket)
+@TicketRouter.get("/tickets/{ticketID}", response_model=dict)
+async def read_ticket(ticketID: int, db = Depends(get_db)):
+    query = "SELECT ticketID, borrowerID, equipmentsetID, roomID, requestDate, requestStatus, returnDate, returnStatus, feedbackID, personnelID, reportID FROM ticket WHERE ticketID = %s"
+    db[0].execute(query, (ticketID,))
+    ticket = db[0].fetchone()
+        
+    if ticket:
+            return {
+                "ticketID": ticket['ticketID'],
+                "borrowerID": ticket['borrowerID'],
+                "equipmentsetID": ticket['equipmentsetID'],
+                "roomID": ticket['roomID'],
+                "requestDate": ticket['requestDate'],
+                "requestStatus": ticket['requestStatus'],
+                "returnDate": ticket['returnDate'],
+                "returnStatus": ticket['returnStatus'],
+                "feedbackID": ticket['feedbackID'],
+                "personnelID": ticket['personnelID'],
+                "reportID": ticket['reportID'],
+            }
+    else:
+            raise HTTPException(status_code=404, detail="User not found")
 
-@TicketRouter.post("/tickets/", response_model=Ticket)
-async def create_ticket(borrower_id: int = Form(...), equipmentset_id: int = Form(...), room_id: int = Form(...), request_date: datetime.date = Form(...), request_status: int = Form(...), return_date: datetime.date = Form(...), return_status: int = Form(...), feedback_id: int = Form(...), personnel_id: int = Form(...), report_id: int = Form(...), db = Depends(get_db)):
+@TicketRouter.post("/tickets/")
+async def create_ticket(ticket: TicketCreate, db = Depends(get_db)):
     cursor, db_connection = db
-    cursor.execute("INSERT INTO tickets (borrower_id, equipmentset_id, room_id, request_date, request_status, return_date, return_status, feedback_id, personnel_id, report_id) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (borrower_id, equipmentset_id, room_id, request_date, request_status, return_date, return_status, feedback_id, personnel_id, report_id))
+    cursor.execute(
+        "INSERT INTO ticket (ticketID, borrowerID, equipmentsetID, roomID, requestDate, requestStatus, returnDate, returnStatus, feedbackID, personnelID, reportID) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+        (ticket.ticketID, ticket.borrowerID, ticket.equipmentsetID, ticket.roomID, ticket.requestDate, ticket.requestStatus, ticket.returnDate, ticket.returnStatus, ticket.feedbackID, ticket.personnelID, ticket.reportID))
     db_connection.commit()
-    ticket_id = cursor.lastrowid
-    return Ticket(ticket_id=ticket_id, borrower_id=borrower_id, equipmentset_id=equipmentset_id, room_id=room_id, request_date=request_date, request_status=request_status, return_date=return_date, return_status=return_status, feedback_id=feedback_id, personnel_id=personnel_id, report_id=report_id)
+    db_connection.close()
+    return ticket.dict()
 
-@TicketRouter.put("/tickets/{ticket_id}", response_model=Ticket)
-async def update_ticket(ticket_id: int, borrower_id: int = Form(...), equipmentset_id: int = Form(...), room_id: int = Form(...), request_date: datetime.date = Form(...), request_status: int = Form(...), return_date: datetime.date = Form(...), return_status: int = Form(...), feedback_id: int = Form(...), personnel_id: int = Form(...), report_id: int = Form(...), db = Depends(get_db)):
+@TicketRouter.put("/tickets/{ticketID}")
+async def update_ticket(ticketID: int, borrowerID: str = Form(...), equipmentsetID: int = Form(...), roomID: int = Form(...), requestDate: datetime.date = Form(...), requestStatus: bool = Form(...), returnDate: datetime.date = Form(...), returnStatus: bool = Form(...), feedbackID: int = Form(...), personnelID: int = Form(...), reportID: int = Form(...), db = Depends(get_db)):
     cursor, db_connection = db
-    cursor.execute("UPDATE tickets SET borrower_id = %s, equipmentset_id = %s, room_id = %s, request_date = %s, request_status = %s, return_date = %s, return_status = %s, feedback_id = %s, personnel_id = %s, report_id = %s WHERE ticket_id = %s", (borrower_id, equipmentset_id, room_id, request_date, request_status, return_date, return_status, feedback_id, personnel_id, report_id, ticket_id))
+    cursor.execute("UPDATE ticket SET borrowerID = %s, equipmentsetID = %s, roomID = %s, requestDate = %s, requestStatus = %s, returnDate = %s, returnStatus = %s, feedbackID = %s, personnelID = %s, reportID = %s WHERE ticketID = %s", (borrowerID, equipmentsetID, roomID, requestDate, requestStatus, returnDate, returnStatus, feedbackID, personnelID, reportID, ticketID))
     db_connection.commit()
-    return Ticket(ticket_id=ticket_id, borrower_id=borrower_id, equipmentset_id=equipmentset_id, room_id=room_id, request_date=request_date, request_status=request_status, return_date=return_date, return_status=return_status, feedback_id=feedback_id, personnel_id=personnel_id, report_id=report_id)
+    db_connection.close()
+    return {"ticketID": ticketID, "borrowerID": borrowerID, "equipmentsetID": equipmentsetID, "roomID": roomID, "requestDate": requestDate, "requestStatus": requestStatus, "returnDate": returnDate, "returnStatus": returnStatus, "feedbackID": feedbackID, "personnelID": personnelID, "reportID": reportID}
 
-@TicketRouter.delete("/tickets/{ticket_id}")
-async def delete_ticket(ticket_id: int, db = Depends(get_db)):
+@TicketRouter.delete("/tickets/{ticketID}")
+async def delete_ticket(ticketID: int, db = Depends(get_db)):
     cursor, db_connection = db
-    cursor.execute("DELETE FROM tickets WHERE ticket_id = %s", (ticket_id,))
+    cursor.execute("DELETE FROM ticket WHERE ticketID = %s", (ticketID,))
     db_connection.commit()
+    db_connection.close()
     return {"message": "Ticket deleted successfully"}
