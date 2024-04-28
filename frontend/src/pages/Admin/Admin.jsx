@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Menubar } from 'primereact/menubar';
-import { InputText } from 'primereact/inputtext';
-import './Admin.css'; // Import the CSS file
 import { PanelMenu } from 'primereact/panelmenu';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
-import { Button } from 'primereact/button';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function Admin() {
@@ -19,18 +16,21 @@ function Admin() {
 
   const fetchTickets = async () => {
     try {
-      const ticketresponse = await axios.get('http://localhost:8000/api/tickets/');
-      setTickets(ticketresponse.data);
+      const response = await axios.get('http://localhost:8000/api/tickets/');
+      setTickets(response.data);
     } catch (error) {
       console.error('Error fetching tickets:', error);
     }
   };
 
   const navigate = useNavigate();
-  const handleReportsClick = () => navigate('/')
+
+  const handleReportsClick = () => navigate('/Reports');
   const handleLoginClick = () => navigate('/');
   const handleEquipandtoolsClick = () => navigate('/Equipandtools');
   const handlePendingClick = () => navigate('/Pending');
+  const handleBorrowersClick = () => navigate('/Borrower');
+  const handlePersonnelClick = () => navigate('/');
 
   const itemsadmin = [
     {
@@ -44,10 +44,7 @@ function Admin() {
     {
       label: <div className='navbartextsuic'><b>UIC</b></div>,
     },
-    {
-      label: <div className='navbartexts' onClick={handleEquipandtoolsClick}>Equipments</div>,
-      icon: 'pi pi-fw pi-calendar',
-    },
+    ,
     {
       label: <div className='navbartexts' onClick={handlePendingClick}>Pendings</div>,
       icon: 'pi pi-fw pi-user-plus'
@@ -56,7 +53,11 @@ function Admin() {
 
   const panelMenuitems = [
     {
-      label: <div className='panelmenu-bar'>Students</div>,
+      label: <div className='panelmenu-bar' onClick={handleBorrowersClick}>Borrowers</div>,
+      icon: 'pi pi-fw pi-user',
+    },
+    {
+      label: <div className='panelmenu-bar' onClick={handlePersonnelClick}>Personnel</div>,
       icon: 'pi pi-fw pi-user',
     },
     {
@@ -69,6 +70,22 @@ function Admin() {
     },
   ];
 
+  const getRequestStatus = (status) => {
+    return status === 1 ? 'Approved' : 'Not Approved';
+  };
+
+  const getReturnStatus = (status) => {
+    return status === 1 ? 'Returned' : 'Not Returned';
+  };
+
+  const getMonthName = (month) => {
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    return months[month - 1];
+  };
+
+  // Filter tickets with requestStatus = 1 (approved)
+  const filteredTickets = tickets.filter(ticket => ticket.requestStatus === 1);
+
   return (
     <>
       <div className="vl"></div>
@@ -76,7 +93,7 @@ function Admin() {
         <Menubar
           model={itemsadmin}
           start={<h1 className="admin-header">Admin</h1>}
-          end={<InputText placeholder="Search" type="text" className="search-input" />}
+          end
         />
       </div>
       <div className="sidebar-menu">
@@ -87,22 +104,20 @@ function Admin() {
       <div className="master-detail-container">
         <div className="master-section">
           <DataTable
-            value={tickets}
+            value={filteredTickets} // Use filteredTickets instead of tickets
             selectionMode="single"
             selection={selectedTicket}
             onSelectionChange={(e) => setSelectedTicket(e.value)}
           >
-            <Column field="ticketID" header="Ticket ID"></Column>
-            <Column field="borrowerID" header="Borrower ID"></Column>
-            <Column field="equipmentsetID" header="Equipment Set ID"></Column>
-            <Column field="roomID" header="Room ID"></Column>
-            <Column field="requestDate" header="Request Date"></Column>
-            <Column field="requestStatus" header="Request Status"></Column>
-            <Column field="returnDate" header="Return Date"></Column>
-            <Column field="returnStatus" header="Return Status"></Column>
-            <Column field="feedbackID" header="Feedback ID"></Column>
-            <Column field="personnelID" header="Personnel ID"></Column>
-            <Column field="reportID" header="Report ID"></Column>
+            <Column field="borrowerName" header="Borrower Name"></Column>
+            <Column field="subject" header="Subject"></Column>
+            <Column field="course" header="Course"></Column>
+            <Column field="equipmentNames" header="Equipment Names"></Column>
+            <Column field="roomID" header="Room No."></Column>
+            <Column field="requestStatus" header="Request Status" body={(rowData) => getRequestStatus(rowData.requestStatus)}></Column>
+            <Column field="returnStatus" header="Return Status" body={(rowData) => getReturnStatus(rowData.returnStatus)}></Column>
+            <Column field="reportMonth" header="Month" body={(rowData) => getMonthName(rowData.reportMonth)}></Column>
+            <Column field="reportYear" header="Year"></Column>
           </DataTable>
         </div>
         <div className="detail-section">

@@ -1,46 +1,41 @@
 /* Admin.css */
 
 .admin-header {
-    
-    color: #e65b7a; 
+    color: #e65b7a;
     margin-right: 570px;
+}
 
-  }
-  
-  .search-input {
+.search-input {
     width: 100%;
+}
 
-  }
- .navbartextsuic{
+.navbartextsuic {
     color: #e65b7a;
     font-size: 25px;
- }
+}
 
-  @media (max-width: 1231px) {
-    .admin-header{
+@media (max-width: 1231px) {
+    .admin-header {
         margin-right: 0px;
     }
-  }
+}
 
-  .sidebar-menu{
-    margin-top: 150px;
+.sidebar-menu {
     width: 10%;
     margin-left: 20px;
-  }
- 
-  
-  #pr_id_5_header{
-    background-color: pink;
-    
-  }
+}
 
-  .panelmenu-bar{
+#pr_id_5_header {
+    background-color: pink;
+}
+
+.panelmenu-bar {
     padding-top: 50px;
     padding-bottom: 50px;
     padding-left: 10px;
-  }
+}
 
-  .vl {
+.vl {
     border-left: 2px solid pink;
     height: 100%;
     position: absolute;
@@ -48,110 +43,40 @@
     margin-left: -3px;
     top: 0;
     z-index: -1;
-  }
-
-
-  /* Admin.css */
+}
 
 /* Styling for Menubar icons */
 .wh .p-menubar .p-menuitem .p-menuitem-link .pi {
-  /* Your styles for Menubar icons */
-  color: pink !important; /* You can use !important to force the style */
-  /* Add other styles as needed */
+    color: pink !important;
 }
 
 /* Styling for PanelMenu icons */
 .sidebar-menu .p-panelmenu .p-panelmenu-header .pi {
-  /* Your styles for PanelMenu icons */
-  
-  color: white   !important; /* You can use !important to force the style */
-  /* Add other styles as needed */
+    color: white !important;
 }
 
-
-
-
-.master-detail-container{
-  
-  margin-top: 150px;
-  margin-left: 400px;
-  width: 70%;
-}
-.master-section{
-  margin-top: -600px;
-  
-}
-@media (max-width: 1440px) {
-  .sidebar-menu{
-    font-size: 10px;
-    margin-left: 10px;
-    
-  }
-}
-@media (max-width: 1080px) {
-  .master-detail-container{
-    font-size: 10px;
-    margin-top: 400px;
-    margin-left: 300px;
-    position: absolute;
-    right: 10%;
-    
-  }
-}
-@media (max-width: 1024px) {
-  .master-detail-container{
-    font-size: 10px;
-    margin-top: 400px;
-    margin-left: 300px;
-    position: absolute;
-    right: 10%;
-    
-  }
-}
-@media (max-width: 1024px) {
-  .sidebar-menu{
-    font-size: 10px;
-    margin-left: 10px;
-    
-  }
-}
-@media (max-width: 1440px) {
-  .master-detail-container{
-    font-size: 10px;
-    margin-left: 300px;
-    
-  }
+.admin-container {
+    display: flex;
+    justify-content: center;
 }
 
-
-@media (max-width: 1080px) {
-  .sidebar-menu{
-    font-size: 10px;
-    margin-left: 0px;
-    
-  }
+.master-detail-container {
+    display: flex;
 }
 
-@media (max-width: 1080px) {
-  .panelmenu-bar{
-    font-size: 10px;
-    display: none;
-    
-  }
+.master-section {
+    margin-right: 20px;
 }
+
+/* Adjusted styling for mobile */
 @media (max-width: 768px) {
-  .p-datatable-wrapper{
-    font-size: 10px;
-    
-    
-  }
+    .admin-header {
+        margin-right: 0px;
+    }
+    .master-detail-container {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
-
-
-
-
-
-
-
-
+/* Admin.css */

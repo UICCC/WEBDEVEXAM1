@@ -30,10 +30,50 @@ def hash_password(password: str):
 # Define CRUD operations for Tickets
 @TicketRouter.get("/tickets/", response_model=list)
 async def read_tickets(db = Depends(get_db)):
-    query = "SELECT * FROM ticket"
+    query = """
+       SELECT 
+    t.ticketID, 
+    t.borrowerID, 
+    b.borrowerName, 
+    b.subject,
+    b.course,
+    t.equipmentsetID, 
+    GROUP_CONCAT(e.equipmentName SEPARATOR ', ') AS equipmentNames, 
+    t.roomID, 
+    r.roomBorrowStatus, 
+    t.requestDate, 
+    t.requestStatus, 
+    t.returnDate, 
+    t.returnStatus, 
+    t.feedbackID,
+    p.personnelID, 
+    p.personnelName, 
+    m.month AS reportMonth,
+    m.year AS reportYear
+FROM 
+    ticket t
+LEFT JOIN 
+    borrower b ON t.borrowerID = b.borrowerID
+LEFT JOIN 
+    avr r ON t.roomID = r.roomID
+LEFT JOIN 
+    equipmentsetid es ON t.equipmentsetID = es.equipmentsetID
+LEFT JOIN 
+    equipment e ON es.equipmentID = e.equipmentID
+LEFT JOIN 
+    personnel p ON t.personnelID = p.personnelID
+LEFT JOIN 
+    monthlyreport m ON t.reportID = m.reportID
+GROUP BY 
+    t.ticketID;
+
+
+    """
     db[0].execute(query)
-    ticket = db[0].fetchall()
-    return ticket
+    tickets = db[0].fetchall()
+    return tickets
+
+
 
 @TicketRouter.get("/tickets/{ticketID}", response_model=dict)
 async def read_ticket(ticketID: int, db = Depends(get_db)):
@@ -83,3 +123,15 @@ async def delete_ticket(ticketID: int, db = Depends(get_db)):
     db_connection.commit()
     db_connection.close()
     return {"message": "Ticket deleted successfully"}
+
+@TicketRouter.put("/tickets/{ticketID}/status/{status}")
+async def update_pending_request_status(ticketID: int, status: int, db = Depends(get_db)):
+    cursor, db_connection = db
+    try:
+        cursor.execute("UPDATE ticket SET requestStatus = %s WHERE ticketID = %s", (status, ticketID))
+        db_connection.commit()
+        return {"message": f"Request status updated for ticket ID {ticketID}"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        db_connection.close()

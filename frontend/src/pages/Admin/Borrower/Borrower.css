@@ -1,0 +1,33 @@
+.feedback-title {
+    margin-left: 20px; /* Adjust margin for smaller screens */
+    margin-top: 20px;
+    text-align: center; /* Center the title */
+}
+
+.custom-table {
+    border-collapse: collapse;
+    margin-left: 20px; /* Adjust margin for smaller screens */
+    margin-top: 20px;
+    width: 90%; /* Adjust table width for smaller screens */
+    max-width: 800px; /* Set maximum width for the table */
+    margin-bottom: 20px; /* Add some space at the bottom */
+}
+
+/* Optional: Style table cells and headers */
+.custom-table th,
+.custom-table td {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .feedback-title {
+        margin-left: 10px;
+    }
+
+    .custom-table {
+        margin-left: 10px;
+        width: 95%;
+    }
+}

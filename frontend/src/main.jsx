@@ -15,6 +15,7 @@ import Equipandtools from './pages/Admin/Equipments/Allequips/Equipandtools.jsx'
 import Report from './pages/Admin/Reports/Reports.jsx'
 import Pending from './pages/Admin/Pending/Pending.jsx';
 import Teacher from './pages/Login/Teacher/Teacher.jsx';
+import Borrower from './pages/Admin/Borrower/Borrower.jsx';
 
 const router = createBrowserRouter([
   {
@@ -58,7 +59,11 @@ const router = createBrowserRouter([
     path: "/Teacher",
     element: <Teacher />,
   },
-  
+  {
+    path: "/Borrower",
+    element: <Borrower />,
+  },
+
 
 ]);
 
