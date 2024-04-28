@@ -59,7 +59,6 @@ async def create_borrower(borrower: BorrowerCreate, db = Depends(get_db)):
         (borrower.borrowerID, borrower.BorrowerPass, borrower.borrowerName, borrower.borrowerEmail, borrower.subject, borrower.course)
     )
     db_connection.commit()
-    new_borrower_id = cursor.lastrowid
     db_connection.close()
     return borrower.dict()  # Return the inserted borrower data
 

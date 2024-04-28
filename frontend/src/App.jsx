@@ -25,23 +25,42 @@ function App() {
       alert("Please fill in both ID Number and Password fields.");
     } else {
       try {
-        const response = await axios.get(`http://localhost:8000/api/borrowers/${value}`);
-        const borrower = response.data;
+        const borrowerResponse = await axios.get(`http://localhost:8000/api/borrowers/${value}`);
+        const borrower = borrowerResponse.data;
   
-        // Check if the returned borrower's password matches the input password
         if (borrower && borrower.BorrowerPass === valuePass) {
-          // Login successful, navigate to the appropriate page
-          alert('Login Successful!');
-          navigate('/');
+          alert('Login Successful as Borrower!');
+          navigate('/Request');
+          return;
+        }
+  
+        // If borrower not found, proceed to check personnel
+        throw { response: { status: 404 } };
+      } catch (error) {
+        if (error.response && error.response.status === 404) {
+          // Borrower not found, proceed to check personnel
+          console.log('Borrower not found, proceeding to check personnel.');
         } else {
-          // Login failed, display an error message
+          console.error('An error occurred:', error);
+          alert('An error occurred. Please try again later.');
+          return;
+        }
+      }
+  
+      // Proceed to check personnel
+      try {
+        const personnelResponse = await axios.get(`http://localhost:8000/api/personnel/${value}`);
+        const personnel = personnelResponse.data;
+  
+        if (personnel && personnel.PersonnelPass === valuePass) {
+          alert('Login Successful as Admin!');
+          navigate('/Admin');
+        } else {
           alert('Invalid ID Number or Password.');
         }
       } catch (error) {
-        // Handle error, such as network error or server error
         if (error.response && error.response.status === 404) {
-          // Borrower with provided ID doesn't exist
-          alert('Borrower with provided ID does not exist.');
+          alert('User with provided ID does not exist.');
         } else {
           console.error('An error occurred:', error);
           alert('An error occurred. Please try again later.');
@@ -115,7 +134,7 @@ const [valuePass, setPass] = useState('');
     
     <Button onClick={handleloginClick} id='login-button' label="Login" severity="help" rounded />
     <Button onClick={handleSignupClick} id='Signup-button' label="Signup" severity="help" rounded />
-    <Button onClick={handleStudentloginClick} id='studentpage-button' label="Studentlogin" severity="help" rounded />
+
     
 
 
