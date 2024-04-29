@@ -16,6 +16,7 @@ import Report from './pages/Admin/Reports/Reports.jsx'
 import Pending from './pages/Admin/Pending/Pending.jsx';
 import Teacher from './pages/Login/Teacher/Teacher.jsx';
 import Borrower from './pages/Admin/Borrower/Borrower.jsx';
+import Personnel from './pages/Personnel/Personnel.jsx';
 
 const router = createBrowserRouter([
   {
@@ -63,7 +64,10 @@ const router = createBrowserRouter([
     path: "/Borrower",
     element: <Borrower />,
   },
-
+  {
+    path: "/Personnel",
+    element: <Personnel />,
+  },
 
 ]);
 
