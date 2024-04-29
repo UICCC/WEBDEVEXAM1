@@ -4,10 +4,11 @@ import './Borrower.css';
 
 function Borrowers() {
     const [borrowers, setBorrowers] = useState([]);
+    const [deletedBorrower, setDeletedBorrower] = useState(null);
 
     useEffect(() => {
         fetchBorrowers();
-    }, []);
+    }, [deletedBorrower]);
 
     const fetchBorrowers = async () => {
         try {
@@ -18,6 +19,19 @@ function Borrowers() {
         }
     };
 
+    const handleDelete = async (borrowerID) => {
+        const confirmDelete = window.confirm("Are you sure you want to delete this borrower?");
+        if (confirmDelete) {
+            try {
+                await axios.delete(`http://localhost:8000/api/borrowers/${borrowerID}`);
+                setDeletedBorrower(borrowerID);
+            } catch (error) {
+                console.error('Error deleting borrower:', error);
+            }
+        }
+    };
+    
+
     return (
         <>
             <h1 className='feeback-title'>Registered Borrowers</h1>
@@ -27,8 +41,8 @@ function Borrowers() {
                         <th>Borrower ID</th>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Subject</th>
                         <th>Course</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,8 +51,10 @@ function Borrowers() {
                             <td>{borrower.borrowerID}</td>
                             <td>{borrower.borrowerName}</td>
                             <td>{borrower.borrowerEmail}</td>
-                            <td>{borrower.subject}</td>
                             <td>{borrower.course}</td>
+                            <td>
+                                <button onClick={() => handleDelete(borrower.borrowerID)}>Delete</button>
+                            </td>
                         </tr>
                     ))}
                 </tbody>

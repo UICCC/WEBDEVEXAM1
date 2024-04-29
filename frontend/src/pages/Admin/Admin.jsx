@@ -30,7 +30,19 @@ function Admin() {
   const handleEquipandtoolsClick = () => navigate('/Equipandtools');
   const handlePendingClick = () => navigate('/Pending');
   const handleBorrowersClick = () => navigate('/Borrower');
-  const handlePersonnelClick = () => navigate('/');
+  const handlePersonnelClick = () => navigate('/Personnel');
+  const handleReturn = async (ticketID) => {
+    try {
+        // Make an API call to update the return status of the ticket
+        await axios.put(`http://localhost:8000/api/tickets/${ticketID}/returnstatus/1`);
+        // Refresh the tickets list
+        fetchTickets();
+    } catch (error) {
+        console.error('Error marking ticket as returned:', error);
+    }
+};
+
+
 
   const itemsadmin = [
     {
@@ -46,26 +58,26 @@ function Admin() {
     },
     ,
     {
-      label: <div className='navbartexts' onClick={handlePendingClick}>Pendings</div>,
+      label: <div className='navbartexts1' onClick={handlePendingClick}>Pendings</div>,
       icon: 'pi pi-fw pi-user-plus'
     }
   ];
 
   const panelMenuitems = [
     {
-      label: <div className='panelmenu-bar' onClick={handleBorrowersClick}>Borrowers</div>,
+      label: <div className='panelmenu-bar1' onClick={handleBorrowersClick}>Borrowers</div>,
       icon: 'pi pi-fw pi-user',
     },
     {
-      label: <div className='panelmenu-bar' onClick={handlePersonnelClick}>Personnel</div>,
+      label: <div className='panelmenu-bar2' onClick={handlePersonnelClick}>Personnel</div>,
       icon: 'pi pi-fw pi-user',
     },
     {
-      label: <div className='panelmenu-bar123' onClick={handleEquipandtoolsClick}>Equipments</div>,
+      label: <div className='panelmenu-bar3' onClick={handleEquipandtoolsClick}>Equipments</div>,
       icon: 'pi pi-fw pi-shopping-cart',
     },
     {
-      label: <div className='panelmenu-bar' onClick={handleReportsClick}>Reports</div>,
+      label: <div className='panelmenu-bar4' onClick={handleReportsClick}>Reports</div>,
       icon: 'pi pi-fw pi-envelope',
     },
   ];
@@ -109,6 +121,10 @@ function Admin() {
             selection={selectedTicket}
             onSelectionChange={(e) => setSelectedTicket(e.value)}
           >
+            // Inside the DataTable component
+<Column headerStyle={{ width: '8rem' }} body={(rowData) => (
+    <button onClick={() => handleReturn(rowData.ticketID)} disabled={rowData.returnStatus === 1}>Return</button>
+)}></Column>
             <Column field="borrowerName" header="Borrower Name"></Column>
             <Column field="subject" header="Subject"></Column>
             <Column field="course" header="Course"></Column>

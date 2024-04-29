@@ -13,7 +13,6 @@ class BorrowerCreate(BaseModel):
     BorrowerPass: str
     borrowerName: str
     borrowerEmail: str
-    subject: Optional[str] = None
     course: Optional[str] = None
 
 def hash_password(password: str):
@@ -35,7 +34,7 @@ async def read_borrowers(db = Depends(get_db)):
 @BorrowersRouter.get("/borrowers/{borrowerID}", response_model=dict)
 async def read_borrower(borrowerID: int, db=Depends(get_db)):
 
-        query = "SELECT borrowerID, BorrowerPass, borrowerName, borrowerEmail, subject, course FROM borrower WHERE borrowerID = %s"
+        query = "SELECT borrowerID, BorrowerPass, borrowerName, borrowerEmail, course FROM borrower WHERE borrowerID = %s"
         db[0].execute(query, (borrowerID,))
         borrower = db[0].fetchone()
         
@@ -45,7 +44,6 @@ async def read_borrower(borrowerID: int, db=Depends(get_db)):
                 "BorrowerPass": borrower['BorrowerPass'],
                 "borrowerName": borrower['borrowerName'],
                 "borrowerEmail": borrower['borrowerEmail'],
-                "subject": borrower['subject'],
                 "course": borrower['course'],
             }
         else:
@@ -55,8 +53,8 @@ async def read_borrower(borrowerID: int, db=Depends(get_db)):
 async def create_borrower(borrower: BorrowerCreate, db = Depends(get_db)):
     cursor, db_connection = db
     cursor.execute(
-        "INSERT INTO borrower (borrowerID, BorrowerPass, borrowerName, borrowerEmail, subject, course) VALUES (%s, %s, %s, %s, %s, %s)",
-        (borrower.borrowerID, borrower.BorrowerPass, borrower.borrowerName, borrower.borrowerEmail, borrower.subject, borrower.course)
+        "INSERT INTO borrower (borrowerID, BorrowerPass, borrowerName, borrowerEmail, course) VALUES ( %s, %s, %s, %s, %s)",
+        (borrower.borrowerID, borrower.BorrowerPass, borrower.borrowerName, borrower.borrowerEmail, borrower.course)
     )
     db_connection.commit()
     db_connection.close()
@@ -64,12 +62,12 @@ async def create_borrower(borrower: BorrowerCreate, db = Depends(get_db)):
 
 
 @BorrowersRouter.put("/borrowers/{borrowerID}")
-async def update_borrower(borrowerID: int, BorrowerPass: str = Form(...), borrowerName: str = Form(...), borrowerEmail: str = Form(...), subject: str = Form(None), course: str = Form(None), db = Depends(get_db)):
+async def update_borrower(borrowerID: int, BorrowerPass: str = Form(...), borrowerName: str = Form(...), borrowerEmail: str = Form(...), course: str = Form(None), db = Depends(get_db)):
     cursor, db_connection = db
-    cursor.execute("UPDATE borrower SET BorrowerPass = %s, borrowerName = %s, borrowerEmail = %s, subject = %s, course = %s WHERE borrowerID = %s", (BorrowerPass, borrowerName, borrowerEmail, subject, course, borrowerID))
+    cursor.execute("UPDATE borrower SET BorrowerPass = %s, borrowerName = %s, borrowerEmail = %s, course = %s WHERE borrowerID = %s", (BorrowerPass, borrowerName, borrowerEmail, course, borrowerID))
     db_connection.commit()
     db_connection.close()
-    return {"borrowerID": borrowerID, "BorrowerPass": BorrowerPass, "borrowerName": borrowerName, "borrowerEmail": borrowerEmail, "subject": subject, "course": course}
+    return {"borrowerID": borrowerID, "BorrowerPass": BorrowerPass, "borrowerName": borrowerName, "borrowerEmail": borrowerEmail, "course": course}
 
 
 @BorrowersRouter.delete("/borrowers/{borrowerID}")
