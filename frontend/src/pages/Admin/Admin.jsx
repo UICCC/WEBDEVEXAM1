@@ -61,7 +61,7 @@ function Admin() {
       icon: 'pi pi-fw pi-user',
     },
     {
-      label: <div className='panelmenu-bar' onClick={handleEquipandtoolsClick}>Equipments</div>,
+      label: <div className='panelmenu-bar123' onClick={handleEquipandtoolsClick}>Equipments</div>,
       icon: 'pi pi-fw pi-shopping-cart',
     },
     {
