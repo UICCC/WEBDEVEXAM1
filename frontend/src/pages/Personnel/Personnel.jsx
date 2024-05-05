@@ -110,9 +110,10 @@ function Personnel() {
 
     return (
         <>
-            <div className='control the box'></div>
+            <div className='control-the-box'>
             <div className="card">
             <Menubar model={items} />
+         </div>
          </div>
             <h1>PERSONNEL</h1>
             <table>
