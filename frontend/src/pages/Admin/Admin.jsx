@@ -61,6 +61,11 @@ function Admin() {
       label: <div className='navbartexts1' onClick={handlePendingClick}>Pendings</div>,
       icon: 'pi pi-fw pi-user-plus'
     }
+    ,
+    {
+      label: <div className='navbartexts1' onClick={handlePendingClick}>Contact</div>,
+      icon: 'pi pi-fw pi-user-plus'
+    }
   ];
 
   const panelMenuitems = [
