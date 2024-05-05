@@ -14,4 +14,7 @@ th {
     margin: auto; /* Centers the element horizontally */
     max-width: 700px;
 }
-
+.p-menubar{
+    background-color: transparent;
+    border: none;
+}
