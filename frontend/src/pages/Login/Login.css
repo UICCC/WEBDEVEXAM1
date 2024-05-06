@@ -97,13 +97,14 @@
     position: absolute; 
     z-index: 1;
     top: 59%; /* Position it vertically at 50% from the top */
-    left: 60.2%; /* Position it horizontally at 50% from the left */
+    left: 55%; /* Position it horizontally at 50% from the left */
     transform: translate(-50%, -50%); /* Center the component both vertically and horizontally */
     margin-top: -60px;   
   }
   
   .inside-Subject{
     width: 200%;
+  
     
   }
 
@@ -162,7 +163,7 @@
     }
   }
   @media (max-width: 1920px) {
-    .Id-box, .name-box, .email-box, .password-box{
+    .Id-box, .name-box, .email-box, .password-box,.Subject{
       margin-left: 100px;
       
     }
@@ -266,7 +267,7 @@
     }
   }
   @media (max-width: 1440px) {
-    .Id-box, .name-box, .email-box, .password-box{
+    .Id-box, .name-box, .email-box, .password-box, .Subject{
       margin-left: 50px;
       
     }
