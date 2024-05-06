@@ -171,6 +171,31 @@ background-color: #e65b7a;;
   }
 }
 
+@media (max-width: 921px) {
+  #login-button {
+    margin-left: 110px;
+    width: 5%;
+    
+  }
+}
+@media (max-width: 921px) {
+   #Signup-button{
+    margin-left: -44px;
+    margin-top: 60px;
+    width: 5%;
+    
+  }
+}
+
+@media (max-width: 854px) {
+  #Signup-button{
+   margin-left: -22px;
+   margin-top: 60px;
+   width: 5%;
+   
+ }
+}
+
 
 
 

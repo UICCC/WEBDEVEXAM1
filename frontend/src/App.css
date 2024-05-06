@@ -184,6 +184,14 @@
   }
 }
 
+@media (max-width: 1054px) {
+  .main-title{
+    position: absolute;
+    margin-right: 200px;
+    color: grey;
+    
+  }
+}
 
 
 
@@ -227,6 +235,21 @@
   }
 }
 @media (max-width: 949px) {
+   .password-box-main{
+    margin-top: -120px;
+    margin-left: 90px;
+    
+  }
+}
+
+@media (max-width: 982px) {
+  .Id-box-main{
+    margin-left: 50px;
+    width: 9.65%;
+    
+  }
+}
+@media (max-width: 982px) {
    .password-box-main{
     margin-top: -120px;
     margin-left: 90px;
