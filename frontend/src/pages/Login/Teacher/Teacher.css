@@ -8,3 +8,16 @@
         margin-top: -60px;   
       }
       
+      @media (max-width: 1440px) {
+        .email-box-teacher{
+          margin-left: 50px;
+          
+        }
+      }
+
+      @media (max-width: 1920px) {
+        .email-box-teacher{
+          margin-left: 35px;
+          
+        }
+      }
