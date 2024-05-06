@@ -114,7 +114,7 @@ const [valuePass, setPass] = useState('');
   <Menubar className='navbar' model={items} />
 </div>
       <div className='outerflex'>
-      <p className='main-title'> Login to your account</p>
+      <div className='main-title'> Login to your account</div>
     
       
         <div className="Id-box-main">

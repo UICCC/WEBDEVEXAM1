@@ -196,6 +196,45 @@ background-color: #e65b7a;;
  }
 }
 
+@media (max-width: 1021px) {
+  #login-button {
+    margin-left: -90px;
+    width: 5%;
+    
+  }
+}
+@media (max-width: 1021px) {
+   #Signup-button{
+    margin-left: -30px;
+    margin-top: 00px;
+    width: 5%;
+    
+  }
+}
+
+
+
+
+
+@media (max-width: 921px) {
+  #login-button {
+    margin-left: -90px;
+    width: 5%;
+    
+  }
+}
+@media (max-width: 921px) {
+   #Signup-button{
+    margin-left: -30px;
+    margin-top: 00px;
+    width: 5%;
+    
+  }
+}
+
+
+
+
 
 
 
