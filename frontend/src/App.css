@@ -362,6 +362,23 @@
          
        }
      }
+     @media (max-width: 1024px) {
+      .new-component{
+        margin-left: 40px;
+        width: 100%;
+        
+      }
+    }
+
+
+
+     @media (max-width: 1021px) {
+      .new-component{
+        margin-left: -180px;
+        width: 100%;
+        
+      }
+    }
 
 
 

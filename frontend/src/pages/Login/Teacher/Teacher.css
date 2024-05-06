@@ -3,7 +3,7 @@
         position: absolute; 
         z-index: 1;
         top: 60%; /* Position it vertically at 50% from the top */
-        left: 60.2%; /* Position it horizontally at 50% from the left */
+        left: 58.5%; /* Position it horizontally at 50% from the left */
         transform: translate(-50%, -50%); /* Center the component both vertically and horizontally */
         margin-top: -60px;   
       }
