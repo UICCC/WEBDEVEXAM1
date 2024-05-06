@@ -140,25 +140,24 @@ background-color: #e65b7a;;
   }
 }
 
-
-
-
-
-
 @media (max-width: 1024px) {
   #login-button {
-    margin-left: 3px;
-    width: 10%;
+    margin-left: 110px;
+    width: 5%;
     
   }
 }
 @media (max-width: 1024px) {
    #Signup-button{
-    margin-left: 2px;
-    width: 10%;
+    margin-left: 140px;
+    width: 5%;
     
   }
 }
+
+
+
+
 
 @media screen and (max-width: 1837px), 
        screen and (max-height: 700px) {
