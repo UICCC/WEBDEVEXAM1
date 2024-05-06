@@ -155,6 +155,23 @@ background-color: #e65b7a;;
   }
 }
 
+@media (max-width: 1002px) {
+  #login-button {
+    margin-left: 110px;
+    width: 5%;
+    
+  }
+}
+@media (max-width: 1002px) {
+   #Signup-button{
+    margin-left: -59px;
+    margin-top: 60px;
+    width: 5%;
+    
+  }
+}
+
+
 
 
 
