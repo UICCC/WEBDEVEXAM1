@@ -100,15 +100,17 @@ function Personnel() {
                     {renderPersonnelTableRows()}
                 </tbody>
             </table>
+            <div className='personnelfonts'>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="personnelID">Personnel ID:</label>
+                <label htmlFor="personnelID"> <div className='personnelspecific'>Personnel ID:</div> </label>
                 <input type="text" id="personnelID" name="personnelID" value={newPersonnel.personnelID} onChange={handleInputChange} required />
-                <label htmlFor="personnelName">Personnel Name:</label>
+                <label htmlFor="personnelName"> <div className='personnelspecific'>Personnel Name:</div></label>
                 <input type="text" id="personnelName" name="personnelName" value={newPersonnel.personnelName} onChange={handleInputChange} required />
-                <label htmlFor="PersonnelPass">Personnel Password:</label>
+                <label htmlFor="PersonnelPass"><div className='personnelspecific'>Personnel Password: </div></label>
                 <input type="password" id="PersonnelPass" name="PersonnelPass" value={newPersonnel.PersonnelPass} onChange={handleInputChange} required />
-                <button type="submit">Add Personnel</button>
+                 <div className='personnelspecificbutton'><button type="submit">Add Personnel</button></div>
             </form>
+            </div>
         </>
     );
 }

@@ -17,6 +17,12 @@
     background-color: #e65b7a;;
 
 }
+#login-button:hover, #Signup-button:hover {
+  background-color: #110f0f; /* Darken the background color on hover */
+}
+
+
+
 #login-button1{
   position: absolute; 
 z-index: 1;

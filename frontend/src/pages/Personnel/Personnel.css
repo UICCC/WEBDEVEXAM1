@@ -17,4 +17,50 @@ th {
 .p-menubar{
     background-color: transparent;
     border: none;
+    background-color: rgb(245, 201, 208);
 }
+
+.personnelfonts{
+    font-style: italic;
+    font-size: 20px;
+    color: rgb(207, 47, 74);
+    
+
+}
+.personnelspecificbutton button {
+    padding: 10px 20px; /* Adjust padding as needed */
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add some border radius for rounded corners */
+    cursor: pointer; /* Show pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+    margin: 20px;
+}
+
+.personnelspecificbutton button:hover {
+    background-color: pink; /* Darker green background on hover */
+}
+
+
+
+.personnelfonts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 600px; /* Adjust as needed */
+    margin: 20px;
+}
+
+
+/* Style for input fields */
+.personnelfonts input[type="text"],
+.personnelfonts input[type="password"] {
+    flex: 0 0 calc(50% - 10px); /* Each input takes half of the container width with some space */
+    padding: 10px; /* Add padding to inputs */
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    margin-bottom: 10px; /* Add space between inputs */
+    box-sizing: border-box; /* Include padding and border in the total width */
+}
+
