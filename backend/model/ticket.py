@@ -10,11 +10,10 @@ TicketRouter = APIRouter(tags=["Tickets"])
 
 # Define a Ticket model
 class TicketCreate(BaseModel):
-    ticketID: int
     borrowerID: int
     subject: str
     equipmentsetID: int
-    roomID: int
+    roomID: Optional[int] = None
     requestDate: datetime.date
     requestStatus: int
     returnDate: Optional[datetime.date] = None
@@ -106,39 +105,8 @@ async def create_ticket(ticket: TicketCreate, db = Depends(get_db)):
     try:
         # Insert the ticket into the ticket table with reportID set to NULL
         cursor.execute(
-            "INSERT INTO ticket (ticketID, borrowerID, subject, equipmentsetID, roomID, requestDate, requestStatus, returnDate, returnStatus, feedbackID, personnelID, reportID) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
-            (ticket.ticketID, ticket.borrowerID, ticket.subject, ticket.equipmentsetID, ticket.roomID, ticket.requestDate, ticket.requestStatus, None, ticket.returnStatus, ticket.feedbackID, ticket.personnelID, None)
-        )
-        # Fetch the month and year from the requestDate
-        month = ticket.requestDate.month
-        year = ticket.requestDate.year
-        # Retrieve the corresponding reportID associated with the month and year
-        cursor.execute("SELECT reportID FROM monthlyreport WHERE month = %s AND year = %s", (month, year))
-        report = cursor.fetchone()
-        if report:
-            report_id = report['reportID']
-        else:
-            # If monthly report for the month and year does not exist, create a new one
-            cursor.execute("INSERT INTO monthlyreport (reportDate, month, year) VALUES (%s, %s, %s)", (datetime.date.today(), month, year))
-            db_connection.commit()
-            report_id = cursor.lastrowid
-        
-        # Insert or update the ticket ID in the monthlyreport table
-        cursor.execute("SELECT ticketID FROM monthlyreport WHERE reportID = %s", (report_id,))
-        ticket_ids_row = cursor.fetchone()
-        if ticket_ids_row:
-            ticket_ids = ticket_ids_row['ticketID']
-            if ticket_ids:
-                # If there are already ticket IDs in the row, append the new ticket ID
-                ticket_ids = str(ticket_ids) + ',' + str(ticket.ticketID)
-            else:
-                # If no ticket IDs exist for the row, set the new ticket ID
-                ticket_ids = str(ticket.ticketID)
-            cursor.execute("UPDATE monthlyreport SET ticketID = %s WHERE reportID = %s", (ticket_ids, report_id))
-        else:
-            # If no ticket IDs exist for the row, insert the new ticket ID
-            cursor.execute("UPDATE monthlyreport SET ticketID = %s WHERE reportID = %s", (str(ticket.ticketID), report_id))
-
+            "INSERT INTO ticket (borrowerID, subject, equipmentsetID, roomID, requestDate, requestStatus, returnDate, returnStatus, feedbackID, personnelID, reportID) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+            (ticket.borrowerID, ticket.subject, ticket.equipmentsetID, ticket.roomID if ticket.roomID is not None else None, ticket.requestDate, ticket.requestStatus, None, ticket.returnStatus, None, None, None))
         db_connection.commit()
         return ticket.dict()
     except Exception as e:
@@ -147,9 +115,36 @@ async def create_ticket(ticket: TicketCreate, db = Depends(get_db)):
     finally:
         db_connection.close()
 
-
-
-
+@TicketRouter.put("/tickets/{ticketID}/reportid")
+async def update_ticket_report(ticketID: int, db = Depends(get_db)):
+    cursor, db_connection = db
+    try:
+        # Get the ticket details to determine the month and year
+        cursor.execute("SELECT requestDate FROM ticket WHERE ticketID = %s", (ticketID,))
+        ticket_data = cursor.fetchone()
+        if ticket_data:
+            request_date = ticket_data["requestDate"]
+            month = request_date.month
+            year = request_date.year
+            
+            # Find the corresponding reportID in the monthlyreport table
+            cursor.execute("SELECT reportID FROM monthlyreport WHERE month = %s AND year = %s", (month, year))
+            report_data = cursor.fetchone()
+            if report_data:
+                reportID = report_data["reportID"]
+                
+                # Update the ticket's reportID
+                cursor.execute("UPDATE ticket SET reportID = %s WHERE ticketID = %s", (reportID, ticketID))
+                db_connection.commit()
+                return {"message": f"Report ID updated for ticket ID {ticketID} to {reportID}"}
+            else:
+                return {"message": f"No report found for the month {month} and year {year}"}
+        else:
+            return {"message": f"No ticket found with ID {ticketID}"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        db_connection.close()
 
 @TicketRouter.put("/tickets/{ticketID}")
 async def update_ticket(ticketID: int, borrowerID: str = Form(...), subject: str = Form(...), equipmentsetID: int = Form(...), roomID: int = Form(...), requestDate: datetime.date = Form(...), requestStatus: bool = Form(...), returnDate: datetime.date = Form(...), returnStatus: bool = Form(...), feedbackID: int = Form(...), personnelID: int = Form(...), reportID: int = Form(...), db = Depends(get_db)):

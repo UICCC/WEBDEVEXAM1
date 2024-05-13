@@ -1,46 +1,52 @@
 from fastapi import Depends, HTTPException, APIRouter
 from .db import get_db
+from typing import List
 from pydantic import BaseModel
+import bcrypt
 
-EquipmentSetRouter = APIRouter(tags=["Equipment Set"])
+EquipmentSetRouter = APIRouter(tags=["EquipmentSet"])
 
-class EquipmentSet(BaseModel):
-    equipmentset_id: int
-    equipment_id: int
+class EquipmentSetCreate(BaseModel):
+    equipmentID: int
+    equipmentsetID: int
 
-@EquipmentSetRouter.get("/equipmentset/", response_model=list)
-async def read_equipment_set(db = Depends(get_db)):
-    cursor, _ = db
-    cursor.execute("SELECT * FROM equipment_set")
-    return [EquipmentSet(**equipmentset) for equipmentset in cursor.fetchall()]
+def hash_password(password: str):
+    salt = bcrypt.gensalt()
+    hashed_password = bcrypt.hashpw(password.encode('utf-8'), salt)
+    return hashed_password.decode('utf-8')
 
-@EquipmentSetRouter.get("/equipmentset/{equipmentset_id}", response_model=EquipmentSet)
-async def read_single_equipment_set(equipmentset_id: int, db = Depends(get_db)):
-    cursor, _ = db
-    cursor.execute("SELECT * FROM equipment_set WHERE equipmentset_id = %s", (equipmentset_id,))
-    equipmentset = cursor.fetchone()
-    if not equipmentset:
-        raise HTTPException(status_code=404, detail="Equipment Set not found")
-    return EquipmentSet(**equipmentset)
+@EquipmentSetRouter.post("/equipmentset", response_model=int)
+async def create_equipment_set(equipment_ids: List[int], db = Depends(get_db)):
+    try:
+        cursor, db_connection = db
+        equipment_set_id = None  
 
-@EquipmentSetRouter.post("/equipmentset/", response_model=EquipmentSet)
-async def create_equipment_set(equipment_id: int, db = Depends(get_db)):
-    cursor, db_connection = db
-    cursor.execute("INSERT INTO equipment_set (equipment_id) VALUES (%s)", (equipment_id,))
-    db_connection.commit()
-    equipmentset_id = cursor.lastrowid
-    return EquipmentSet(equipmentset_id=equipmentset_id, equipment_id=equipment_id)
+        for equipment_id in equipment_ids:
+            # Check if equipment exists
+            query = f"SELECT equipmentID FROM equipment WHERE equipmentID = {equipment_id}"
+            cursor.execute(query)
 
-@EquipmentSetRouter.put("/equipmentset/{equipmentset_id}", response_model=EquipmentSet)
-async def update_equipment_set(equipmentset_id: int, equipment_id: int, db = Depends(get_db)):
-    cursor, db_connection = db
-    cursor.execute("UPDATE equipment_set SET equipment_id = %s WHERE equipmentset_id = %s", (equipment_id, equipmentset_id))
-    db_connection.commit()
-    return EquipmentSet(equipmentset_id=equipmentset_id, equipment_id=equipment_id)
+            if cursor.rowcount == 1:
+                # Query the maximum equipmentsetID from the equipmentsetid table
+                max_equipment_set_id_query = "SELECT MAX(equipmentsetID) FROM equipmentsetid"
+                cursor.execute(max_equipment_set_id_query)
+                max_equipment_set_id = cursor.fetchone()[0]
 
-@EquipmentSetRouter.delete("/equipmentset/{equipmentset_id}")
-async def delete_equipment_set(equipmentset_id: int, db = Depends(get_db)):
-    cursor, db_connection = db
-    cursor.execute("DELETE FROM equipment_set WHERE equipmentset_id = %s", (equipmentset_id,))
-    db_connection.commit()
-    return {"message": "Equipment Set deleted successfully"}
+                # Determine the new equipmentsetID
+                new_equipment_set_id = max_equipment_set_id + 1 if max_equipment_set_id is not None else 1
+
+                # Iterate over each equipment ID and insert it with the new equipmentsetID
+                for equipment_id in equipment_ids:
+                    query = "INSERT INTO equipmentsetid (equipmentsetID, equipmentID) VALUES (%s, %s)"
+                    cursor.execute(query, (new_equipment_set_id, equipment_id,))
+                
+                # Set equipment_set_id only if it has been successfully set
+                equipment_set_id = new_equipment_set_id
+
+                # If equipment_set_id is set, break out of the loop
+                break
+
+        return equipment_set_id
+
+    finally:
+        db_connection.close()
