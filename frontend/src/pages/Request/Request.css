@@ -177,7 +177,7 @@
     position: absolute; 
     z-index: 1;
     top: 120%; /* Position it vertically at 50% from the top */
-    left:30%; /* Position it horizontally at 50% from the left */
+    left:32%; /* Position it horizontally at 50% from the left */
     transform: translate(-50%, -50%);
     
     font-size: 20px;
