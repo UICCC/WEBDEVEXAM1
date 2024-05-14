@@ -54,6 +54,7 @@ function Login() {
 
     const handleAdminClick = () => navigate('/Admin');
     const handleequipmentsClick = () => navigate('/Equipments');
+    const handleTeacherloginClick = () => navigate('/Teacher');
 
     const items = [
         {
@@ -136,7 +137,7 @@ function Login() {
             </div>
             <Button onClick={handleloginClick} id='login-button' label="Login" severity="help" rounded />
             <Button onClick={handleSignupClick} id='Signup-button' label="Signup" severity="help" rounded />
-            <Button onClick={handleSignupClick} id='Signup-buttonteacher' label="TeacherSignup" severity="help" rounded />
+            <Button onClick={handleTeacherloginClick} id='Signup-buttonteacher' label="TeacherSignup" severity="help" rounded />
             
             
     

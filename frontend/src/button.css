@@ -21,7 +21,7 @@
   position: absolute; 
   z-index: 1;
   top: 77%; /* Position it vertically at 50% from the top */
-  left: 55%; /* Position it horizontally at 50% from the left */
+  left: 60%; /* Position it horizontally at 50% from the left */
   transform: translate(-50%, -50%);
   width: 200px;
   background-color: #e65b7a;;
