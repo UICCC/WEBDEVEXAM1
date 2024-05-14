@@ -135,7 +135,8 @@ function Login() {
                 </span>
             </div>
             <Button onClick={handleloginClick} id='login-button' label="Login" severity="help" rounded />
-            <Button onClick={handleSignupClick} id='Signup-button' label="Signup" severity="help" rounded />
+            <Button onClick={handleSignupClick} id='Signup-button' label="TeacherSignup" severity="help" rounded />
+            
             
             
     
