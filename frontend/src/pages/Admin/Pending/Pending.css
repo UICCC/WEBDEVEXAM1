@@ -43,3 +43,77 @@
     color: white;
   }
   
+
+  
+
+
+  .pending-title {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 2em;
+    color: #333;
+}
+
+/* Table styling */
+.custom-table-2 {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.custom-table-2 thead tr {
+    background-color: #007bff;
+    color: #fff;
+    text-align: left;
+}
+
+.custom-table-2 th, .custom-table-2 td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+.custom-table-2 th {
+    background-color: #007bff;
+    color: white;
+}
+
+.custom-table-2 tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.custom-table-2 tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.custom-table-2 tbody tr:last-of-type {
+    border-bottom: 2px solid #007bff;
+}
+
+.custom-table-2 tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.custom-table-2 button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 5px;
+}
+
+.custom-table-2 button:hover {
+    background-color: #45a049;
+}
+
+.custom-table-2 button.decline {
+    background-color: #ff4c4c; /* Red */
+}
+
+.custom-table-2 button.decline:hover {
+    background-color: #ff1c1c;
+}
