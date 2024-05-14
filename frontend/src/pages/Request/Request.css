@@ -146,7 +146,7 @@
  }
 
 
-.purpose-box{
+.subject-box{
   position: absolute; 
   z-index: 1;
   top: 78%; /* Position it vertically at 50% from the top */
@@ -156,7 +156,7 @@
   font-weight: 100;
 }
 
-.inside-purpose-box{
+.inside-subject-box{
   width: 120%;
 }
 .dateandTime{

@@ -7,6 +7,7 @@ from model.equipment import EquipmentRouter
 from model.equipmentfeedback import EquipmentFeedbackRouter
 from model.equipmentset import EquipmentSetRouter
 from model.monthlyreport import MonthlyReportRouter
+from model.avr import AvrRouter
 
 app = FastAPI()
 
@@ -18,6 +19,7 @@ app.include_router(EquipmentRouter, prefix="/api")
 app.include_router(EquipmentFeedbackRouter, prefix="/api")
 app.include_router(EquipmentSetRouter, prefix="/api")
 app.include_router(MonthlyReportRouter, prefix="/api")
+app.include_router(AvrRouter, prefix="/api")
 
 app.add_middleware(
     CORSMiddleware,

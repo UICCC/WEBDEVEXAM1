@@ -1,13 +1,14 @@
 import './Request.css';
 import { Menubar } from 'primereact/menubar';
 import { Dropdown } from 'primereact/dropdown';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MultiSelect } from 'primereact/multiselect';
 import { InputText } from "primereact/inputtext";
 import { InputTextarea } from "primereact/inputtextarea";
 import { Button } from 'primereact/button';
 import { Calendar } from 'primereact/calendar';
 import {useNavigate} from 'react-router-dom';
+import axios from 'axios';
 
 interface InputValue {
     name: string;
@@ -16,34 +17,27 @@ interface InputValue {
 
 function Request() {
     const navigate = useNavigate();
-    const [course, setCourse] = useState('');
-    const [purpose, setPurpose] = useState('');
-    const [borrowerName, setBorrowerName] = useState('');
-    const [datetime12h, setDateTime12h] = useState<Date | null>(null); // Use Date type for request date
-    const currentDate = new Date();
-    const handleButtonClick = (borrowerName: string) => {
-    const returnDate = new Date(datetime12h.getTime() + 2 * 60 * 60 * 1000);
-    // Format dates as required (requestDate: 'yyyy-MM-dd HH:mm:ss')
-    const formattedRequestDate = datetime12h.toISOString();
-    const selectedEquipmentNames = multiselectValue?.map((item: InputValue) => item.name).join(', ') || '';
+    const [subject, setSubject] = useState('');
+    const [datetime12h, setDateTime12h] = useState<Date | null>(null);
+    const [multiselectValue, setMultiselectValue] = useState(null);
+    const [dropdownValue, setDropdownValue] = useState(null);
+    const [equipmentOptions, setEquipmentOptions] = useState([]);
+    const [roomOptions, setRoomOptions] = useState([]);
 
-    const queryParams = new URLSearchParams();
-    queryParams.append('selectedEquipment', JSON.stringify(selectedEquipmentNames)); // Convert array to string for passing
-    queryParams.append('purpose', purpose);
-    queryParams.append('selectedRoom', JSON.stringify(dropdownValue.name));
-    queryParams.append('borrowerName', borrowerName);
-    queryParams.append('requestDate', formattedRequestDate);
-    queryParams.append('returnDate', returnDate.toISOString());
-    queryParams.append('currentDate', currentDate.toISOString());
-    navigate(`/Ticket?${queryParams.toString()}`);
-  };
-  const handleSubmitClick = () => {
-    handleButtonClick('John'); // Call the logic to navigate and pass data
-  };
+
     const handleloginClick = () => navigate('/');
     const handleSignupClick = () => navigate('/Login');
     const handleAdminClick = () => navigate('/Admin');
     const handleequipmentsClick = () => navigate('/Equipments');
+    
+    const itemTemplate = (option: InputValue) => {
+        return (
+            <div className="sad1">
+                
+                <span className="ml-2">{option.name}</span>
+            </div>
+        );
+    };
     
 
     const items = [
@@ -72,62 +66,79 @@ function Request() {
         }
     ];
 
+
+
+    useEffect(() => {
+        async function fetchEquipment() {
+            try {
+                const response = await axios.get('http://localhost:8000/api/equipment/');
+                const formattedEquipment = response.data.map((equipmentItem) => ({
+                    name: equipmentItem.equipmentName,
+                    code: equipmentItem.equipmentID.toString(),
+                }));
+                setEquipmentOptions(formattedEquipment);
+            } catch (error) {
+                console.error('Error fetching equipment:', error);
+            }
+        }
     
+        fetchEquipment();
+    }, []);
 
+    useEffect(() => {
+        const fetchRooms = async () => {
+            try {
+                const response = await axios.get('http://localhost:8000/api/avr/');
+                const rooms = response.data;
     
+                const formattedRoomOptions = rooms.map(room => ({
+                    name: room.roomID,
+                    code: room.roomID
+                }));
+    
+                const roomOptionsWithNone = [{ name: 'None', code: null }, ...formattedRoomOptions];
+                setRoomOptions(roomOptionsWithNone);
+            } catch (error) {
+                console.error('Error fetching rooms:', error);
+            }
+        };
+    
+        fetchRooms();
+    }, []);
 
+    const handleSubmitClick = async () => {
+        try {
+            // Create equipment set
+            console.log("Selected Equipment Codes:", multiselectValue.map(equipmentItem => equipmentItem.code));
+            const responseEquipmentSet = await axios.post('http://localhost:8000/api/equipmentset', multiselectValue.map(equipmentItem => equipmentItem.code));
+            const equipmentSetIds = responseEquipmentSet.data;
 
-    const [multiselectValue, setMultiselectValue] = useState(null);
-    const multiselectValues = [
-        { name: 'Audio Cord', code: 'AU' },
-        { name: 'Ext. Wire', code: 'BR' },
-        { name: 'HDMI Connector', code: 'CN' },
-        { name: 'Ipad Connector', code: 'EG' },
-        { name: 'HDMI Cord', code: 'FR' },
-        { name: 'karaoke', code: 'DE' },
-        { name: 'LCD', code: 'IN' },
-        { name: 'Microphone', code: 'JP' },
-        { name: 'Mic. Cord', code: 'ES' },
-        { name: 'Mic. Stand', code: 'US' },
-        { name: 'Pc', code: 'ES' },
-        { name: 'Type-C HDMI Connector', code: 'ES' },
-        { name: 'Portable CD/DVD player', code: 'ES' },
-        { name: 'Portable wirless amplifier ', code: 'ES' },
-        { name: 'PPT Presenter', code: 'ES' },
-        { name: 'AD', code: 'ES' },
-        { name: 'CD/ICD', code: 'ES' },
-        { name: 'Bluetooth Speaker', code: 'ES' },
-        { name: 'HC', code: 'ES' },
-        { name: 'KT', code: 'ES' },
-        { name: 'LC', code: 'ES' },
-        { name: 'PI', code: 'ES' },
-        { name: 'QG', code: 'ES' },
-        { name: 'Mac Con', code: 'ES' },
-        { name: 'VD', code: 'ES' },
-        
-        
-
-
-
-    ];
-    const itemTemplate = (option: InputValue) => {
-        return (
-            <div className="sad1">
-                
-                <span className="ml-2">{option.name}</span>
-            </div>
-        );
+            const requestDate = datetime12h ? datetime12h.toISOString().split('T')[0] : null;
+    
+            // Create ticket
+            const responseTicket = await axios.post('http://localhost:8000/api/tickets/', {
+                borrowerID: 1, 
+                subject: subject,
+                equipmentsetID: equipmentSetIds,
+                roomID: dropdownValue && dropdownValue.name !== "None" ? dropdownValue.name : null,
+                requestDate: requestDate,
+                requestStatus: 0, 
+                returnStatus: 0, 
+            });
+            const ticketData = responseTicket.data;
+    
+            // Example navigation to the Ticket page with query parameters
+            navigate('/Ticket', {
+                state: {
+                    ticketData,
+                }
+            });
+        } catch (error) {
+            console.error('Error creating equipment set or ticket:', error);
+        }
     };
-  
     
-    const [dropdownValue, setDropdownValue] = useState(null);
 
-    const dropdownValues: InputValue[] = [
-        { name: 'Room 1', code: 'NY' },
-        { name: 'Room 2', code: 'RM' },
-        { name: 'None', code: 'NO'}
-        
-    ];
     return(
         <>
         
@@ -156,7 +167,7 @@ function Request() {
                     <MultiSelect 
                         value={multiselectValue}
                         onChange={(e) => setMultiselectValue(e.value)}
-                        options={multiselectValues}
+                        options={equipmentOptions}
                         itemTemplate={itemTemplate}
                         optionLabel="name"
                         placeholder= "Select an Equipment"
@@ -168,12 +179,12 @@ function Request() {
 
                 <div className='room-dropdown'>
                 <h5>Room</h5>
-                    <Dropdown value={dropdownValue} onChange={(e) => setDropdownValue(e.value)} options={dropdownValues} optionLabel="name" placeholder="Select" />
+                    <Dropdown value={dropdownValue} onChange={(e) => setDropdownValue(e.value)} options={roomOptions} optionLabel="name" placeholder="Select" />
                     </div>
 
-                <div className="purpose-box">
-                    <label htmlFor="asd"> <h5>Purpose</h5></label>
-            <InputTextarea className='inside-purpose-box' autoResize value={purpose} onChange={(e) => setPurpose(e.target.value)} rows={5} cols={30} />
+                <div className="subject-box">
+                    <label htmlFor="asd"> <h5>Subject</h5></label>
+            <InputTextarea className='inside-subject-box' autoResize value={subject} onChange={(e) => setSubject(e.target.value)} rows={5} cols={30} />
             
         </div>
         
